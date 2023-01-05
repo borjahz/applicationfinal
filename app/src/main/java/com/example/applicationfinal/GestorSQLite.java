@@ -32,15 +32,15 @@ public class GestorSQLite extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NOMBRE + "TEXT, " +
-                COLUMN_COMIENZO + "TEXT, " +
-                COLUMN_FINAL + "TEXT, " +
-                COLUMN_UNIDADES + "TEXT, " +
+                COLUMN_COMIENZO + "DATE, " +
+                COLUMN_FINAL + "DATE, " +
+                COLUMN_UNIDADES + " INTEGER, " +
                 COLUMN_FACTOR + "TEXT); ";
         db.execSQL(query);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXITS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 }

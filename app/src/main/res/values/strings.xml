@@ -2,4 +2,5 @@
     <!-- Nombre provisional-->
     <string name="app_name">Contador</string>
     <string name="todo">TODO</string>
+    <string name="crear"> Crear </string>
 </resources>
