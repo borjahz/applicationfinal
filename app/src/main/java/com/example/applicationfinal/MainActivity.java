@@ -37,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /* Creacion de los boton de abajo*/
 
 
-        /*Dar funcionalidad al botón COMIENZO*/
+        /*Dar funcionalidad al botón test COMIENZO*/
         button = (Button) findViewById(R.id.boton2_3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 openActivity3();
             }
         });
-        /*Dar funcionalidad al botón FIN*/
+        /*Dar funcionalidad al botón test FIN*/
     }
     /*Método abrir actividad COMIENZO*/
     public void openActivity3(){
@@ -59,4 +60,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-/* Creacion de los boton de abajo*/

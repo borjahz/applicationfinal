@@ -7,29 +7,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class introducirdatos extends AppCompatActivity {
+public class editarComponente extends AppCompatActivity {
     private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_introducirdatos);
-
+        setContentView(R.layout.activity_editar_componente);
 
         /*Dar funcionalidad al botón COMIENZO*/
-        button = (Button) findViewById(R.id.boton_crear);
+        button = (Button) findViewById(R.id.boton_editar_componente);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeCrearProyecto();
+                closeEditarComponentes();
             }
         });
         /*Dar funcionalidad al botón FIN*/
 
     }
     /*Método cerrar actividad COMIENZO*/
-    public void closeCrearProyecto(){
-        Intent intent = new Intent(this, editarProyecto.class);
+    public void closeEditarComponentes(){
+        Intent intent = new Intent(this, Anadir_Componentes.class);
         finish();
     }
     /*Método cerrar actividad FIN*/

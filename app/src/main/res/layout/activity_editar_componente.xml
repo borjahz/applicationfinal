@@ -9,12 +9,12 @@
 
 
     <EditText
-        android:id="@+id/Nombre_Proyecto"
+        android:id="@+id/Nombre_Componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:ems="10"
-        android:hint="@string/nombreNuevoProyecto"
+        android:hint="@string/nuevoNombreComponente"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Fecha_Comienzo"
+        android:id="@+id/Fecha_Comienzo_Componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -31,10 +31,10 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nombre_Proyecto" />
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Componente" />
 
     <EditText
-        android:id="@+id/Fecha_Fin"
+        android:id="@+id/Fecha_Fin_Componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -43,37 +43,37 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo_Componente" />
 
     <EditText
-        android:id="@+id/Unidades"
+        android:id="@+id/Comienzo_Unidades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="@string/unidades"
+        android:hint="@string/comienzoUnidades"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin_Componente" />
 
     <EditText
-        android:id="@+id/Factor"
+        android:id="@+id/Fin_Unidades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="@string/factor"
+        android:hint="@string/finUnidades"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Unidades" />
+        app:layout_constraintTop_toBottomOf="@+id/Comienzo_Unidades" />
 
     <Button
-        android:id="@+id/boton_crear"
+        android:id="@+id/boton_editar_componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/crear"
+        android:text="@string/guardarCambios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
