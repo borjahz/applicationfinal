@@ -3,4 +3,8 @@
     <string name="app_name">Contador</string>
     <string name="todo">TODO</string>
     <string name="crear"> Crear </string>
+    <string name="editarProyecto">Editar Proyecto</string>
+    <string name="anadirComponentes">Añadir Componentes</string>
+    <string name="abrirPantalla3">Test Pantalla 3</string>
+    <string name="pantalla3">Test Pantalla 3</string>
 </resources>
