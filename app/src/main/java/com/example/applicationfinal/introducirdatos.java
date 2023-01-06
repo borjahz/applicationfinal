@@ -32,8 +32,8 @@ public class introducirdatos extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GestorSQLite myDB = new GestorSQLite(introducirdatos.this);
-                myDB.anadirProyecto(nombre_input.getText().toString().trim(),
+                GestorSQLite GSQL = new GestorSQLite(introducirdatos.this);
+                GSQL.anadirProyecto(nombre_input.getText().toString().trim(),
                         Integer.valueOf(comienzo_input.getText().toString().trim()),
                         Integer.valueOf(fin_input.getText().toString().trim()),
                         unidades_input.getText().toString().trim(),
