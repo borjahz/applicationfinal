@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="fecha"
+            type="com.example.applicationfinal.introducirdatos"/>
+
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +13,8 @@
     android:layout_height="match_parent"
     tools:context=".introducirdatos"
     android:padding="30dp">
+
+
 
 
     <EditText
@@ -43,7 +52,7 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo" />
+        app:layout_constraintTop_toBottomOf="@+id/buttoninicio" />
 
     <EditText
         android:id="@+id/Unidades"
@@ -77,4 +86,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttoninicio"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/Fecha_Inicio"
+        app:iconTint="#9C27B0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Proyecto"
+        app:rippleColor="#F44336" />
+
+    <TextView
+        android:id="@+id/txt_fecha_inicio"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="48dp"
+        android:text="@string/Inicio"
+        app:layout_constraintBottom_toBottomOf="@+id/buttoninicio"
+        app:layout_constraintStart_toEndOf="@+id/buttoninicio"
+        app:layout_constraintTop_toTopOf="@+id/buttoninicio"
+        app:layout_constraintVertical_bias="0.611" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

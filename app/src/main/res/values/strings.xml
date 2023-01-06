@@ -3,24 +3,4 @@
     <string name="app_name">Contador</string>
     <string name="todo">TODO</string>
     <string name="crear"> Crear </string>
-    <string name="introducirDatos">Introducir datos</string>
-    <string name="nuevoProyecto">Nuevo Proyecto</string>
-    <string name="editarProyecto">Editar Proyecto</string>
-    <string name="anadirComponentes">Añadir Componente</string>
-    <string name="testEditarComponentes">Test Editar Componente</string>
-    <string name="abrirPantalla3">Test Pantalla 3</string>
-    <string name="pantalla3">Test Pantalla 3</string>
-    <string name="guardarCambios">Guardar Cambios</string>
-    <string name="nombreNuevoProyecto">Nombre del nuevo proyecto</string>
-    <string name="comienzo">Fecha de comienzo</string>
-    <string name="fin">Fecha de finalización</string>
-    <string name="unidades">Unidades</string>
-    <string name="factor">Escriba el factor</string>
-    <string name="nuevoNombreProyecto">Nuevo nombre del proyecto</string>
-    <string name="crearComponente">Crear componente</string>
-    <string name="finUnidades">Finalización (Unidades)</string>
-    <string name="comienzoUnidades">Comienzo (Unidades)</string>
-    <string name="nombreNuevoComponente">Nombre del nuevo componente</string>
-    <string name="nuevoNombreComponente">Nuevo nombre del componente</string>
-    <string name="editarComponente">Editar componente</string>
 </resources>
