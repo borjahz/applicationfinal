@@ -10,16 +10,33 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class pantalla3 extends AppCompatActivity {
     private Button button;
+    private TextView nombre_display, comienzo_display, fin_display, unidades_display, factor_display;
+
+    private String id, nombre, comienzo, fin, unidades, factor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla3);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+        nombre_display = findViewById(R.id.nombre_display);
+        comienzo_display = findViewById(R.id.comienzo_display);
+        fin_display = findViewById(R.id.fin_display);
+        unidades_display = findViewById(R.id.unidades_display);
+        factor_display = findViewById(R.id.factor_display);
+
+        getIntentAndSetData();
 
         /*Dar funcionalidad al botón test COMIENZO*/
         button = (Button) findViewById(R.id.boton_test_editar_componente);
@@ -79,4 +96,30 @@ public class pantalla3 extends AppCompatActivity {
     }
     /*Método abrir actividad FIN*/
 
+    /*Método metodo recoger COMIENZO*/
+    public void getIntentAndSetData(){
+        if(getIntent().hasExtra("id") && getIntent().hasExtra("nombre") &&
+                getIntent().hasExtra("comienzo") && getIntent().hasExtra("fin") &&
+                getIntent().hasExtra("unidades") && getIntent().hasExtra("factor")){
+            /*Cogiendo datos del intent*/
+            id = getIntent().getStringExtra("id");
+            nombre = getIntent().getStringExtra("nombre");
+            comienzo = getIntent().getStringExtra("comienzo");
+            fin = getIntent().getStringExtra("fin");
+            unidades = getIntent().getStringExtra("unidades");
+            factor = getIntent().getStringExtra("factor");
+
+            /*Escribir datos de la BD en los text view COMIENZO*/
+            nombre_display.setText(nombre);
+            comienzo_display.setText(comienzo);
+            fin_display.setText(fin);
+            unidades_display.setText(unidades);
+            factor_display.setText(factor);
+            /*Escribir datos de la BD en los text view FIN*/
+
+        }else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
+    }
+    /*Método recoger datos FIN*/
 }

@@ -51,7 +51,7 @@ public class editarProyecto extends AppCompatActivity {
     }
     /*Método cerrar actividad FIN*/
 
-    /*Método editar COMIENZO*/
+    /*Método metodo recoger COMIENZO*/
     public void getIntentAndSetData(){
         if(getIntent().hasExtra("id") && getIntent().hasExtra("nombre") &&
                 getIntent().hasExtra("comienzo") && getIntent().hasExtra("fin") &&
@@ -64,15 +64,17 @@ public class editarProyecto extends AppCompatActivity {
             unidades = getIntent().getStringExtra("unidades");
             factor = getIntent().getStringExtra("factor");
 
-            /*Meter datos nuevos en la BD*/
+            /*Escribir datos de la BD en los edit text COMIENZO*/
             nombre_input.setText(nombre);
             comienzo_input.setText(comienzo);
             fin_input.setText(fin);
             unidades_input.setText(unidades);
             factor_input.setText(factor);
+            /*Escribir datos de la BD en los edit text FIN*/
+
         }else{
-            Toast.makeText(this, "No ha hecho cambios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
     }
-    /*Método editar FIN*/
+    /*Método recoger datos FIN*/
 }
