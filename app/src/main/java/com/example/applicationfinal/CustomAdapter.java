@@ -27,10 +27,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.context = context;
         this.proyecto_id = proyecto_id;
         this.nombre_input = nombre_input;
-        this.comienzo_input = nombre_input;
-        this.fin_input = nombre_input;
-        this.unidades_input = nombre_input;
-        this.factor_input = nombre_input;
+        this.comienzo_input = comienzo_input;
+        this.fin_input = fin_input;
+        this.unidades_input = unidades_input;
+        this.factor_input = factor_input;
     }
 
     @NonNull

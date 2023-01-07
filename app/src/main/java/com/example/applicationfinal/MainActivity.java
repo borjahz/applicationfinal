@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
 
     GestorSQLite GSQL;
-    ArrayList<String> proyecto_id, nombre_input, comienzo_input, fin_input, unidades_input, factor_input;
+    ArrayList<String> proyecto_id, nombre_input, comienzo_input,
+            fin_input, unidades_input, factor_input;
     CustomAdapter customAdapter;
 
     @Override

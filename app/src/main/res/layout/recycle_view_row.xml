@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Proyecto 1"
-                android:textSize="30sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/proyecto_id_txt"
                 app:layout_constraintTop_toTopOf="@+id/proyecto_id_txt" />
 
