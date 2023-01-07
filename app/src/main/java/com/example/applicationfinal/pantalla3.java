@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class pantalla3 extends AppCompatActivity {
     private Button button;
-    private TextView nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display;
+    private TextView nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2;
 
     private String id, nombre, comienzo, fin, unidades, factor, valor;
 
@@ -36,6 +36,8 @@ public class pantalla3 extends AppCompatActivity {
         unidades_display = findViewById(R.id.unidades_display);
         factor_display = findViewById(R.id.factor_display);
         valor_display = findViewById(R.id.valor_display);
+        unidades_display2 = findViewById(R.id.unidades_display2);
+
 
         getIntentAndSetData();
 
@@ -119,6 +121,8 @@ public class pantalla3 extends AppCompatActivity {
             unidades_display.setText(unidades);
             factor_display.setText(factor);
             valor_display.setText(valor);
+            unidades_display2.setText(unidades);
+
             /*Escribir datos de la BD en los text view FIN*/
 
         }else{

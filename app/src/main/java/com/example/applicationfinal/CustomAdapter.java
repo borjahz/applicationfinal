@@ -43,7 +43,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         View view = inflater.inflate(R.layout.recycle_view_row, parent, false);
         return new MyViewHolder(view);
     }
-
+    /*Aquí le dices el campo donde tiene que ir cada input en el recycleview COMIENZO*/
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.proyecto_id_txt.setText(String.valueOf(proyecto_id.get(position)));
@@ -53,6 +53,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.Unidades_txt.setText(String.valueOf(unidades_input.get(position)));
         holder.Factor_txt.setText(String.valueOf(factor_input.get(position)));
         holder.Valor_txt.setText(String.valueOf(valor_input.get(position)));
+        holder.Unidades_txt2.setText(String.valueOf(unidades_input.get(position)));
+        /*Aquí le dices el campo donde tiene que ir cada input en el recycleview FIN*/
+
+        /*Convertir Recycleview en botón COMIENZO*/
         holder.mainLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -82,6 +86,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 context.startActivity(intent);
             }
         });
+        /*Convertir Recycleview en botón FIN*/
 
     }
 
@@ -93,9 +98,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView proyecto_id_txt, Nombre_Proyecto_txt, Fecha_Comienzo_txt, Fecha_Fin_txt, Unidades_txt, Factor_txt, Valor_txt; /*Mismos nombres que en recycle_view_row*/
+        TextView proyecto_id_txt, Nombre_Proyecto_txt, Fecha_Comienzo_txt, Fecha_Fin_txt, Unidades_txt, Factor_txt, Valor_txt, Unidades_txt2; /*Mismos nombres que en recycle_view_row*/
         ConstraintLayout mainLayout;
 
+        /*Identificar cada uno de los elementos del recycle view COMIENZO*/
         public MyViewHolder (@NonNull View itemvView) {
             super(itemvView);
             proyecto_id_txt = itemvView.findViewById(R.id.proyecto_id_txt);
@@ -105,8 +111,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             Unidades_txt = itemvView.findViewById(R.id.Unidades_txt);
             Factor_txt = itemvView.findViewById(R.id.Factor_txt);
             Valor_txt = itemvView.findViewById(R.id.Valor_txt);
+            Unidades_txt2 = itemvView.findViewById(R.id.unidades_txt2);
             mainLayout = itemvView.findViewById(R.id.mainLayout);
         }
+        /*Identificar cada uno de los elementos del recycle view FIN*/
+
     }
 
 }
