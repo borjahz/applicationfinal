@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/Nombre_Proyecto"
+        android:id="@+id/Nombre_Proyecto_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Fecha_Comienzo"
+        android:id="@+id/Fecha_Comienzo_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -31,10 +31,10 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nombre_Proyecto" />
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Proyecto_edit" />
 
     <EditText
-        android:id="@+id/Fecha_Fin"
+        android:id="@+id/Fecha_Fin_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -43,10 +43,10 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo_edit" />
 
     <EditText
-        android:id="@+id/Unidades"
+        android:id="@+id/Unidades_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -55,10 +55,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin_edit" />
 
     <EditText
-        android:id="@+id/Factor"
+        android:id="@+id/Factor_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -67,7 +67,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Unidades" />
+        app:layout_constraintTop_toBottomOf="@+id/Unidades_edit" />
 
     <Button
         android:id="@+id/boton_editar"
@@ -76,5 +76,6 @@
         android:text="@string/guardarCambios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Factor_edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,14 @@
 package com.example.applicationfinal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,7 +17,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input, unidades_input, factor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
-
 
     CustomAdapter(Context context,
                   ArrayList proyecto_id,
@@ -49,6 +50,33 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.Fecha_Fin_txt.setText(String.valueOf(fin_input.get(position)));
         holder.Unidades_txt.setText(String.valueOf(unidades_input.get(position)));
         holder.Factor_txt.setText(String.valueOf(factor_input.get(position)));
+        holder.mainLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent intent = new Intent(context, editarProyecto.class);
+                intent.putExtra("id", String.valueOf(proyecto_id.get(holder.getAdapterPosition())));
+                intent.putExtra("nombre", String.valueOf(nombre_input.get(holder.getAdapterPosition())));
+                intent.putExtra("comienzo", String.valueOf(comienzo_input.get(holder.getAdapterPosition())));
+                intent.putExtra("fin", String.valueOf(fin_input.get(holder.getAdapterPosition())));
+                intent.putExtra("unidades", String.valueOf(unidades_input.get(holder.getAdapterPosition())));
+                intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
+                context.startActivity(intent);
+                return true;
+            }
+        });
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, pantalla3.class);
+                intent.putExtra("id", String.valueOf(proyecto_id.get(holder.getAdapterPosition())));
+                intent.putExtra("nombre", String.valueOf(nombre_input.get(holder.getAdapterPosition())));
+                intent.putExtra("comienzo", String.valueOf(comienzo_input.get(holder.getAdapterPosition())));
+                intent.putExtra("fin", String.valueOf(fin_input.get(holder.getAdapterPosition())));
+                intent.putExtra("unidades", String.valueOf(unidades_input.get(holder.getAdapterPosition())));
+                intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -61,6 +89,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView proyecto_id_txt, Nombre_Proyecto_txt, Fecha_Comienzo_txt, Fecha_Fin_txt, Unidades_txt, Factor_txt; /*Mismos nombres que en recycle_view_row*/
+        ConstraintLayout mainLayout;
 
         public MyViewHolder (@NonNull View itemvView) {
             super(itemvView);
@@ -70,6 +99,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             Fecha_Fin_txt = itemvView.findViewById(R.id.Fecha_Fin_txt);
             Unidades_txt = itemvView.findViewById(R.id.Unidades_txt);
             Factor_txt = itemvView.findViewById(R.id.Factor_txt);
+            mainLayout = itemvView.findViewById(R.id.mainLayout);
         }
     }
 
