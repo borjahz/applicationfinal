@@ -25,9 +25,8 @@ import java.util.ArrayList;
 /*otro comentario de prueba*/
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    FloatingActionButton add_button;
-    private Button button;
+    private RecyclerView recyclerView;
+    private FloatingActionButton add_button;
 
     GestorSQLite GSQL;
     ArrayList<String> proyecto_id, nombre_input, comienzo_input,
@@ -69,16 +68,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/
 
-        /*Dar funcionalidad al botón test COMIENZO*/
-        button = (Button) findViewById(R.id.boton2_3);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity3();
 
-            }
-        });
-        /*Dar funcionalidad al botón test FIN*/
     }
 
     @Override

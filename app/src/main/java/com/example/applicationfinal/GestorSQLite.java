@@ -12,18 +12,17 @@ import androidx.annotation.Nullable;
 
 public class GestorSQLite extends SQLiteOpenHelper {
     private Context context;
-    private static final String DATABASE_NAME ="Proyectos.db";
+    private static final String DATABASE_NAME = "Proyectos.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NAME ="Libreria";
+    private static final String TABLE_NAME = "Libreria";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_NOMBRE= "Nombre_Proyecto";
-    private static final String COLUMN_COMIENZO= "Fecha_Comienzo";
-    private static final String COLUMN_FINALIZACION=  "Fecha_Final";
-    private static final String COLUMN_UNIDADES= "Unidades_Extra";
-    private static final String COLUMN_FACTOR= "Factor_Unidades";
-    private static final String COLUMN_VALOR= "Valor_Unidades";
-
+    private static final String COLUMN_NOMBRE = "Nombre_Proyecto";
+    private static final String COLUMN_COMIENZO = "Fecha_Comienzo";
+    private static final String COLUMN_FINALIZACION = "Fecha_Final";
+    private static final String COLUMN_UNIDADES = "Unidades_Extra";
+    private static final String COLUMN_FACTOR = "Factor_Unidades";
+    private static final String COLUMN_VALOR = "Valor_Unidades";
 
 
     GestorSQLite(@Nullable/*Añadido "Nullable"*/ Context context
@@ -45,13 +44,14 @@ public class GestorSQLite extends SQLiteOpenHelper {
                 COLUMN_VALOR + " INTEGER); ";       /*Factor integer (por ejemplo "100" para resultar 100km entre los dos)*/
         db.execSQL(query);
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    void anadirProyecto(String nombre, int comienzo, int finalizacion, String unidades, int factor, int valor){
+    void anadirProyecto(String nombre, int comienzo, int finalizacion, String unidades, int factor, int valor) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -65,25 +65,24 @@ public class GestorSQLite extends SQLiteOpenHelper {
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {
             Toast.makeText(context, "Error al añadir proyecto", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Añandido correctamente", Toast.LENGTH_SHORT).show();
         }
     }
 
-    Cursor readAllData(){
+    Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if(db != null){
+        if (db != null) {
             cursor = db.rawQuery(query, null);
         }
-    return cursor;
+        return cursor;
     }
 
     void updateData(String row_id, String nombre, String comienzo,
-                    String finalizacion, String unidades, String factor, String valor){
+                    String finalizacion, String unidades, String factor, String valor) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_NOMBRE, nombre);
@@ -96,10 +95,21 @@ public class GestorSQLite extends SQLiteOpenHelper {
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1) {
             Toast.makeText(context, "Error al editar proyecto", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Editado correctamente", Toast.LENGTH_SHORT).show();
         }
 
     }
+
+    void deleteOneRow(String row_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if(result ==-1)
+
+        {
+        Toast.makeText(context, "Error al borrar proyecto", Toast.LENGTH_SHORT).show();
+        }else{
+        Toast.makeText(context, "Borrado correctamente", Toast.LENGTH_SHORT).show();
+        }
+}
 }

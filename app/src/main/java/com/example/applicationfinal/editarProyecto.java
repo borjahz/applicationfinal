@@ -1,8 +1,10 @@
 package com.example.applicationfinal;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 
 public class editarProyecto extends AppCompatActivity {
 
-    private Button button;
+    private Button button, delete_button;
     private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input;
 
     private String id, nombre, comienzo, fin, unidades, factor, valor;
@@ -35,6 +37,9 @@ public class editarProyecto extends AppCompatActivity {
         unidades_input = findViewById(R.id.Unidades_edit);
         factor_input = findViewById(R.id.Factor_edit);
         valor_input = findViewById(R.id.Valor_edit);
+        button = findViewById(R.id.boton_editar);
+        delete_button = findViewById(R.id.boton_borrar);
+
 
         /*Escribir datos existentes COMIENZO*/
         getIntentAndSetData();
@@ -47,8 +52,7 @@ public class editarProyecto extends AppCompatActivity {
         }
         /*Nombre barra acción FIN*/
 
-        /*Dar funcionalidad al botón COMIENZO*/
-        button = (Button) findViewById(R.id.boton_editar);
+        /*Dar funcionalidad al botón editar COMIENZO*/
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +70,18 @@ public class editarProyecto extends AppCompatActivity {
                 closeEditarProyecto();
             }
         });
-        /*Dar funcionalidad al botón FIN*/
+        /*Dar funcionalidad al botón editar FIN*/
+
+        /*Dar funcionalidad al botón borrar COMIENZO*/
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
+            }
+        });
+        /*Dar funcionalidad al botón borrar FIN*/
+
+
 
     }
     /*Método cerrar actividad COMIENZO*/
@@ -104,4 +119,27 @@ public class editarProyecto extends AppCompatActivity {
         }
     }
     /*Método recoger datos FIN*/
+
+    /*Aviso borrar COMIENZO*/
+    void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("¿Borrar " + nombre + "?");
+        builder.setMessage("¿Seguro que quieres borrar el proyecto" + nombre + "?");
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                GestorSQLite myDB = new GestorSQLite(editarProyecto.this);
+                myDB.deleteOneRow(id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+    /*Aviso borrar FIN*/
 }

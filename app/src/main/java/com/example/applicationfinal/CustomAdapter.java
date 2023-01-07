@@ -46,6 +46,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycle_view_row, parent, false);
         return new MyViewHolder(view);
+
     }
     /*Aquí le dices el campo donde tiene que ir cada input en el recycleview COMIENZO*/
     @Override
@@ -59,6 +60,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.Valor_txt.setText(String.valueOf(valor_input.get(position)));
         holder.Unidades_txt2.setText(String.valueOf(unidades_input.get(position)));
         /*Aquí le dices el campo donde tiene que ir cada input en el recycleview FIN*/
+
 
         /*Convertir Recycleview en botón COMIENZO*/
         holder.mainLayout.setOnLongClickListener(new View.OnLongClickListener() {
