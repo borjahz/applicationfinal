@@ -34,13 +34,13 @@ public class GestorSQLite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                " (" + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NOMBRE + "TEXT, " +
-                COLUMN_COMIENZO + "INTEGER, " +     /*Comienzo y finalizacion integer para fecha tiempo UNIX*/
-                COLUMN_FINALIZACION + "INTEGER, " + /*Cambio de final a finalización porque más adelante se utiliza
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NOMBRE + " TEXT, " +
+                COLUMN_COMIENZO + " INTEGER, " +     /*Comienzo y finalizacion integer para fecha tiempo UNIX*/
+                COLUMN_FINALIZACION + " INTEGER, " + /*Cambio de final a finalización porque más adelante se utiliza
                                                     final y android studio lo incterpreta como algo que pone en naranja*/
                 COLUMN_UNIDADES + " TEXT, " +       /*Unidades texto (por ejemplo "km")*/
-                COLUMN_FACTOR + "INTEGER); ";       /*Factor integer (por ejemplo "100" para resultar 100km entre los dos)*/
+                COLUMN_FACTOR + " INTEGER); ";       /*Factor integer (por ejemplo "100" para resultar 100km entre los dos)*/
         db.execSQL(query);
     }
     @Override
