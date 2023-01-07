@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class introducirdatos extends AppCompatActivity {
     private Button button;
-    private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input;
+    private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class introducirdatos extends AppCompatActivity {
         fin_input = findViewById(R.id.Fecha_Fin);
         unidades_input = findViewById(R.id.Unidades);
         factor_input = findViewById(R.id.Factor);
+        valor_input = findViewById(R.id.Valor);
 
         /*Dar funcionalidad edit text FIN*/
 
@@ -37,7 +38,8 @@ public class introducirdatos extends AppCompatActivity {
                         Integer.valueOf(comienzo_input.getText().toString().trim()),
                         Integer.valueOf(fin_input.getText().toString().trim()),
                         unidades_input.getText().toString().trim(),
-                        Integer.valueOf(factor_input.getText().toString().trim())
+                        Integer.valueOf(factor_input.getText().toString().trim()),
+                        Integer.valueOf(valor_input.getText().toString().trim())
                         );
                 closeCrearProyecto();
             }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input, unidades_input, factor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
+    private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
 
     CustomAdapter(Context context,
                   ArrayList proyecto_id,
@@ -24,7 +24,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                   ArrayList comienzo_input,
                   ArrayList fin_input,
                   ArrayList unidades_input,
-                  ArrayList factor_input){
+                  ArrayList factor_input,
+                  ArrayList valor_input){
         this.context = context;
         this.proyecto_id = proyecto_id;
         this.nombre_input = nombre_input;
@@ -32,6 +33,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.fin_input = fin_input;
         this.unidades_input = unidades_input;
         this.factor_input = factor_input;
+        this.valor_input = valor_input;
     }
 
     @NonNull
@@ -50,6 +52,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.Fecha_Fin_txt.setText(String.valueOf(fin_input.get(position)));
         holder.Unidades_txt.setText(String.valueOf(unidades_input.get(position)));
         holder.Factor_txt.setText(String.valueOf(factor_input.get(position)));
+        holder.Valor_txt.setText(String.valueOf(valor_input.get(position)));
         holder.mainLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -60,6 +63,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("fin", String.valueOf(fin_input.get(holder.getAdapterPosition())));
                 intent.putExtra("unidades", String.valueOf(unidades_input.get(holder.getAdapterPosition())));
                 intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
+                intent.putExtra("valor", String.valueOf(valor_input.get(holder.getAdapterPosition())));
                 context.startActivity(intent);
                 return true;
             }
@@ -74,6 +78,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("fin", String.valueOf(fin_input.get(holder.getAdapterPosition())));
                 intent.putExtra("unidades", String.valueOf(unidades_input.get(holder.getAdapterPosition())));
                 intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
+                intent.putExtra("valor", String.valueOf(valor_input.get(holder.getAdapterPosition())));
                 context.startActivity(intent);
             }
         });
@@ -88,7 +93,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView proyecto_id_txt, Nombre_Proyecto_txt, Fecha_Comienzo_txt, Fecha_Fin_txt, Unidades_txt, Factor_txt; /*Mismos nombres que en recycle_view_row*/
+        TextView proyecto_id_txt, Nombre_Proyecto_txt, Fecha_Comienzo_txt, Fecha_Fin_txt, Unidades_txt, Factor_txt, Valor_txt; /*Mismos nombres que en recycle_view_row*/
         ConstraintLayout mainLayout;
 
         public MyViewHolder (@NonNull View itemvView) {
@@ -99,6 +104,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             Fecha_Fin_txt = itemvView.findViewById(R.id.Fecha_Fin_txt);
             Unidades_txt = itemvView.findViewById(R.id.Unidades_txt);
             Factor_txt = itemvView.findViewById(R.id.Factor_txt);
+            Valor_txt = itemvView.findViewById(R.id.Valor_txt);
             mainLayout = itemvView.findViewById(R.id.mainLayout);
         }
     }

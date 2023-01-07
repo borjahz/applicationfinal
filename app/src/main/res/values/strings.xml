@@ -16,6 +16,7 @@
     <string name="fin">Fecha de finalización</string>
     <string name="unidades">Unidades</string>
     <string name="factor">Escriba el factor</string>
+    <string name="valor">Valor de las unidades extra</string>
     <string name="nuevoNombreProyecto">Nuevo nombre del proyecto</string>
     <string name="crearComponente">Crear componente</string>
     <string name="finUnidades">Finalización (Unidades)</string>

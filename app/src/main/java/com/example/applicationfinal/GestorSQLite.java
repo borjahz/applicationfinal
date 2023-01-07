@@ -22,6 +22,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     private static final String COLUMN_FINALIZACION=  "Fecha_Final";
     private static final String COLUMN_UNIDADES= "Unidades_Extra";
     private static final String COLUMN_FACTOR= "Factor_Unidades";
+    private static final String COLUMN_VALOR= "Valor_Unidades";
 
 
 
@@ -40,7 +41,8 @@ public class GestorSQLite extends SQLiteOpenHelper {
                 COLUMN_FINALIZACION + " INTEGER, " + /*Cambio de final a finalización porque más adelante se utiliza
                                                     final y android studio lo incterpreta como algo que pone en naranja*/
                 COLUMN_UNIDADES + " TEXT, " +       /*Unidades texto (por ejemplo "km")*/
-                COLUMN_FACTOR + " INTEGER); ";       /*Factor integer (por ejemplo "100" para resultar 100km entre los dos)*/
+                COLUMN_FACTOR + " INTEGER, " +       /*Unidades texto (por ejemplo "km")*/
+                COLUMN_VALOR + " INTEGER); ";       /*Factor integer (por ejemplo "100" para resultar 100km entre los dos)*/
         db.execSQL(query);
     }
     @Override
@@ -49,7 +51,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void anadirProyecto(String nombre, int comienzo, int finalizacion, String unidades, int factor){
+    void anadirProyecto(String nombre, int comienzo, int finalizacion, String unidades, int factor, int valor){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -58,6 +60,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
         cv.put(COLUMN_FINALIZACION, finalizacion);
         cv.put(COLUMN_UNIDADES, unidades);
         cv.put(COLUMN_FACTOR, factor);
+        cv.put(COLUMN_VALOR, valor);
 
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {

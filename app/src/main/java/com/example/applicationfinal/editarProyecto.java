@@ -12,9 +12,9 @@ import android.widget.Toast;
 public class editarProyecto extends AppCompatActivity {
 
     private Button button;
-    private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input;
+    private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input;
 
-    private String id, nombre, comienzo, fin, unidades, factor;
+    private String id, nombre, comienzo, fin, unidades, factor, valor;
 
 
     @Override
@@ -30,6 +30,7 @@ public class editarProyecto extends AppCompatActivity {
         fin_input = findViewById(R.id.Fecha_Fin_edit);
         unidades_input = findViewById(R.id.Unidades_edit);
         factor_input = findViewById(R.id.Factor_edit);
+        valor_input = findViewById(R.id.Valor_edit);
 
 
         /*Dar funcionalidad al botón COMIENZO*/
@@ -63,6 +64,7 @@ public class editarProyecto extends AppCompatActivity {
             fin = getIntent().getStringExtra("fin");
             unidades = getIntent().getStringExtra("unidades");
             factor = getIntent().getStringExtra("factor");
+            valor = getIntent().getStringExtra("valor");
 
             /*Escribir datos de la BD en los edit text COMIENZO*/
             nombre_input.setText(nombre);
@@ -70,6 +72,7 @@ public class editarProyecto extends AppCompatActivity {
             fin_input.setText(fin);
             unidades_input.setText(unidades);
             factor_input.setText(factor);
+            valor_input.setText(valor);
             /*Escribir datos de la BD en los edit text FIN*/
 
         }else{

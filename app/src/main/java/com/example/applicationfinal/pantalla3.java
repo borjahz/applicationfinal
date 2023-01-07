@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 public class pantalla3 extends AppCompatActivity {
     private Button button;
-    private TextView nombre_display, comienzo_display, fin_display, unidades_display, factor_display;
+    private TextView nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display;
 
-    private String id, nombre, comienzo, fin, unidades, factor;
+    private String id, nombre, comienzo, fin, unidades, factor, valor;
 
 
 
@@ -35,6 +35,7 @@ public class pantalla3 extends AppCompatActivity {
         fin_display = findViewById(R.id.fin_display);
         unidades_display = findViewById(R.id.unidades_display);
         factor_display = findViewById(R.id.factor_display);
+        valor_display = findViewById(R.id.valor_display);
 
         getIntentAndSetData();
 
@@ -100,7 +101,8 @@ public class pantalla3 extends AppCompatActivity {
     public void getIntentAndSetData(){
         if(getIntent().hasExtra("id") && getIntent().hasExtra("nombre") &&
                 getIntent().hasExtra("comienzo") && getIntent().hasExtra("fin") &&
-                getIntent().hasExtra("unidades") && getIntent().hasExtra("factor")){
+                getIntent().hasExtra("unidades") && getIntent().hasExtra("factor") &&
+                getIntent().hasExtra("valor")){
             /*Cogiendo datos del intent*/
             id = getIntent().getStringExtra("id");
             nombre = getIntent().getStringExtra("nombre");
@@ -108,6 +110,7 @@ public class pantalla3 extends AppCompatActivity {
             fin = getIntent().getStringExtra("fin");
             unidades = getIntent().getStringExtra("unidades");
             factor = getIntent().getStringExtra("factor");
+            valor = getIntent().getStringExtra("valor");
 
             /*Escribir datos de la BD en los text view COMIENZO*/
             nombre_display.setText(nombre);
@@ -115,6 +118,7 @@ public class pantalla3 extends AppCompatActivity {
             fin_display.setText(fin);
             unidades_display.setText(unidades);
             factor_display.setText(factor);
+            valor_display.setText(valor);
             /*Escribir datos de la BD en los text view FIN*/
 
         }else{

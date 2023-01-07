@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     GestorSQLite GSQL;
     ArrayList<String> proyecto_id, nombre_input, comienzo_input,
-            fin_input, unidades_input, factor_input;
+            fin_input, unidades_input, factor_input, valor_input;
     CustomAdapter customAdapter;
 
     @Override
@@ -58,11 +58,12 @@ public class MainActivity extends AppCompatActivity {
         fin_input =new ArrayList<>();
         unidades_input =new ArrayList<>();
         factor_input =new ArrayList<>();
+        valor_input =new ArrayList<>();
 
         storeDataInArrays();
 
         customAdapter = new CustomAdapter(MainActivity.this, proyecto_id, nombre_input,
-                comienzo_input, fin_input, unidades_input, factor_input);
+                comienzo_input, fin_input, unidades_input, factor_input, valor_input);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 fin_input.add(cursor.getString(3));
                 unidades_input.add(cursor.getString(4));
                 factor_input.add(cursor.getString(5));
+                valor_input.add(cursor.getString(6));
             }
         }
     }
