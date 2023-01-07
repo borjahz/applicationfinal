@@ -1,5 +1,6 @@
 package com.example.applicationfinal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,9 +17,11 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
+    private Activity activity;
     private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
 
-    CustomAdapter(Context context,
+    CustomAdapter(Activity activity,
+                  Context context,
                   ArrayList proyecto_id,
                   ArrayList nombre_input,
                   ArrayList comienzo_input,
@@ -26,6 +29,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                   ArrayList unidades_input,
                   ArrayList factor_input,
                   ArrayList valor_input){
+        this.activity = activity;
         this.context = context;
         this.proyecto_id = proyecto_id;
         this.nombre_input = nombre_input;
@@ -68,7 +72,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("unidades", String.valueOf(unidades_input.get(holder.getAdapterPosition())));
                 intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
                 intent.putExtra("valor", String.valueOf(valor_input.get(holder.getAdapterPosition())));
-                context.startActivity(intent);
+                activity.startActivityForResult(intent, 1);
                 return true;
             }
         });

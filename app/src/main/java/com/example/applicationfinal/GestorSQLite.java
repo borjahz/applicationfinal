@@ -26,7 +26,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
 
 
 
-    public GestorSQLite(@Nullable/*Añadido "Nullable"*/ Context context
+    GestorSQLite(@Nullable/*Añadido "Nullable"*/ Context context
             /* Borrado ", String name, SQLiteDatabase.CursorFactory factory, int version" (no está en el vídeo y daba error)*/) {
         super(context, DATABASE_NAME, null /*"null" sustituye a "factory"*/, DATABASE_VERSION);
         this.context = context;
@@ -80,5 +80,26 @@ public class GestorSQLite extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
     return cursor;
+    }
+
+    void updateData(String row_id, String nombre, String comienzo,
+                    String finalizacion, String unidades, String factor, String valor){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NOMBRE, nombre);
+        cv.put(COLUMN_COMIENZO, comienzo);
+        cv.put(COLUMN_FINALIZACION, finalizacion);
+        cv.put(COLUMN_UNIDADES, unidades);
+        cv.put(COLUMN_FACTOR, factor);
+        cv.put(COLUMN_VALOR, valor);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Error al editar proyecto", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Editado correctamente", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

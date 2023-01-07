@@ -24,4 +24,5 @@
     <string name="nombreNuevoComponente">Nombre del nuevo componente</string>
     <string name="nuevoNombreComponente">Nuevo nombre del componente</string>
     <string name="editarComponente">Editar componente</string>
+    <string name="borrarProyecto">Borrar proyecto</string>
 </resources>

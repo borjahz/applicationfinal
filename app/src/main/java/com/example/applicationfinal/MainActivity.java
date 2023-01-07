@@ -1,6 +1,7 @@
 package com.example.applicationfinal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(MainActivity.this, proyecto_id, nombre_input,
+        customAdapter = new CustomAdapter(MainActivity.this, this, proyecto_id, nombre_input,
                 comienzo_input, fin_input, unidades_input, factor_input, valor_input);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
@@ -78,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         /*Dar funcionalidad al botón test FIN*/
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
     }
 
     /*Método extraer y exponer datos COMIENZO*/

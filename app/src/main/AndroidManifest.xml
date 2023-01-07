@@ -34,7 +34,7 @@
             android:name=".editarProyecto"
             android:exported="false"
             android:label="@string/editarProyecto"
-            android:parentActivityName=".pantalla3">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

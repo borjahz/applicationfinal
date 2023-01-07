@@ -1,6 +1,7 @@
 package com.example.applicationfinal;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -40,6 +41,13 @@ public class pantalla3 extends AppCompatActivity {
 
 
         getIntentAndSetData();
+
+        /*Nombre barra acción COMIENZO*/
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(nombre);
+        }
+        /*Nombre barra acción FIN*/
 
         /*Dar funcionalidad al botón test COMIENZO*/
         button = (Button) findViewById(R.id.boton_test_editar_componente);

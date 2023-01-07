@@ -1,5 +1,6 @@
 package com.example.applicationfinal;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -25,6 +26,9 @@ public class editarProyecto extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         /*Botón de volver FIN*/
 
+
+
+
         nombre_input = findViewById(R.id.Nombre_Proyecto_edit);
         comienzo_input = findViewById(R.id.Fecha_Comienzo_edit);
         fin_input = findViewById(R.id.Fecha_Fin_edit);
@@ -32,17 +36,37 @@ public class editarProyecto extends AppCompatActivity {
         factor_input = findViewById(R.id.Factor_edit);
         valor_input = findViewById(R.id.Valor_edit);
 
+        /*Escribir datos existentes COMIENZO*/
+        getIntentAndSetData();
+        /*Escribir datos existentes FIN*/
+
+        /*Nombre barra acción COMIENZO*/
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(nombre);
+        }
+        /*Nombre barra acción FIN*/
 
         /*Dar funcionalidad al botón COMIENZO*/
         button = (Button) findViewById(R.id.boton_editar);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*Sobreescribir datos existentes COMIENZO*/
+                GestorSQLite myDB = new GestorSQLite(editarProyecto.this);
+                nombre = nombre_input.getText().toString().trim();
+                comienzo = comienzo_input.getText().toString().trim();
+                fin = fin_input.getText().toString().trim();
+                unidades = unidades_input.getText().toString().trim();
+                factor = factor_input.getText().toString().trim();
+                valor = valor_input.getText().toString().trim();
+                myDB.updateData(id, nombre, comienzo, fin, unidades, factor, valor);
+                /*Sobreescribir datos existentes FIN*/
+
                 closeEditarProyecto();
             }
         });
         /*Dar funcionalidad al botón FIN*/
-        getIntentAndSetData();
 
     }
     /*Método cerrar actividad COMIENZO*/
