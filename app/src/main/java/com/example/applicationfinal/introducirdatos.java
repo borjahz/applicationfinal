@@ -40,17 +40,10 @@ public class introducirdatos extends AppCompatActivity {
                         unidades_input.getText().toString().trim(),
                         Integer.valueOf(factor_input.getText().toString().trim()),
                         Integer.valueOf(valor_input.getText().toString().trim())
-                        );
-                closeCrearProyecto();
+                );
             }
         });
         /*Dar funcionalidad al botón FIN*/
 
     }
-    /*Método cerrar actividad COMIENZO*/
-    public void closeCrearProyecto(){
-        Intent intent = new Intent(this, editarProyecto.class);
-        finish();
-    }
-    /*Método cerrar actividad FIN*/
 }

@@ -21,8 +21,11 @@
     <string name="crearComponente">Crear componente</string>
     <string name="finUnidades">Finalización (Unidades)</string>
     <string name="comienzoUnidades">Comienzo (Unidades)</string>
-    <string name="nombreNuevoComponente">Nombre del nuevo componente</string>
+    <string name="nombreNuevoComponente">Nombre del proyecto</string>
     <string name="nuevoNombreComponente">Nuevo nombre del componente</string>
     <string name="editarComponente">Editar componente</string>
     <string name="borrarProyecto">Borrar proyecto</string>
+    <string name="tipoNuevoComponente">Tipo del nuevo componente</string>
+    <string name="numeroNuevoComponente">Número del nuevo componente</string>
+    <string name="precio">Precio del nuevo componente</string>
 </resources>

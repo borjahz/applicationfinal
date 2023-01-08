@@ -17,10 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="12dp">
-            /*Al ser el número id del proyecto algo que no se puede cambiar
-            y que al borrar otro, se generan espacios entre los id de los proyectos presentes,
-            (por ejemplo, pasa de 1 a 4), se oculta volviendolo del color del fondo.
-            Retirarlo genera problemas*/
+
 
             <TextView
                 android:id="@+id/proyecto_id_txt"

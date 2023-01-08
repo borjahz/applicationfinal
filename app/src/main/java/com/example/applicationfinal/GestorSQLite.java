@@ -16,6 +16,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "Libreria";
+    private static final String TABLE_NAME2 = "Componentes";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_NOMBRE = "Nombre_Proyecto";
     private static final String COLUMN_COMIENZO = "Fecha_Comienzo";
@@ -23,6 +24,14 @@ public class GestorSQLite extends SQLiteOpenHelper {
     private static final String COLUMN_UNIDADES = "Unidades_Extra";
     private static final String COLUMN_FACTOR = "Factor_Unidades";
     private static final String COLUMN_VALOR = "Valor_Unidades";
+    private static final String COLUMN_ID2 = "_id_componente";
+    private static final String COLUMN_TIPO = "Tipo_Componente";
+    private static final String COLUMN_NUMERO = "Numero_Componente";
+    private static final String COLUMN_COM_COMP = "Comienzo_Componente";
+    private static final String COLUMN_FIN_COMP = "Fin_Componente";
+    private static final String COLUMN_COMUE_COMP = "Comienzo_Componente_UE";
+    private static final String COLUMN_FINUE_COMP = "Fin_Componente_UE";
+    private static final String COLUMN_PRECIO = "Precio_Componente";
 
 
     GestorSQLite(@Nullable/*Añadido "Nullable"*/ Context context
@@ -43,6 +52,20 @@ public class GestorSQLite extends SQLiteOpenHelper {
                 COLUMN_FACTOR + " INTEGER, " +       /*Unidades texto (por ejemplo "km")*/
                 COLUMN_VALOR + " INTEGER); ";       /*Factor integer (por ejemplo "100" para resultar 100km entre los dos)*/
         db.execSQL(query);
+
+        String table2 = "CREATE TABLE " + TABLE_NAME2 +
+                " (" + COLUMN_ID2 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NOMBRE + " TEXT, " +
+                COLUMN_TIPO + " TEXT, " +
+                COLUMN_NUMERO + " INTEGER, " +
+                COLUMN_COM_COMP + " INTEGER, " +
+                COLUMN_FIN_COMP + " INTEGER, " +
+                COLUMN_COMUE_COMP + " INTEGER, " +
+                COLUMN_FINUE_COMP + " INTEGER, " +
+                COLUMN_PRECIO + " INTEGER); ";
+        db.execSQL(table2);
+
+
     }
 
     @Override
@@ -70,8 +93,41 @@ public class GestorSQLite extends SQLiteOpenHelper {
         }
     }
 
+    void anadirComponente(String tipo_componente, String nombre, int numero, int comienzo_componente, int fin_componente,
+                          int comienzo_componente_ue, int fin_componente_ue, int precio) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_NOMBRE, nombre);
+        cv.put(COLUMN_TIPO, tipo_componente);
+        cv.put(COLUMN_NUMERO, numero);
+        cv.put(COLUMN_COM_COMP, comienzo_componente);
+        cv.put(COLUMN_FIN_COMP, fin_componente);
+        cv.put(COLUMN_COMUE_COMP, comienzo_componente_ue);
+        cv.put(COLUMN_FINUE_COMP, fin_componente_ue);
+        cv.put(COLUMN_PRECIO, precio);
+
+        long result = db.insert(TABLE_NAME2, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "Error al añadir componente", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Añandido correctamente", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    Cursor readAllData2() {
+        String query = "SELECT * FROM " + TABLE_NAME2;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

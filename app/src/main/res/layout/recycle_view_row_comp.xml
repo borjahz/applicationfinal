@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/secondaryLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="1dp">
+
+            <TextView
+                android:id="@+id/componente_id_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="id"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Nombre_Proyecto_componente_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="nombre"
+                app:layout_constraintStart_toEndOf="@+id/componente_id_txt"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tipo_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:text="tipo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Numero_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Número"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tipo_txt"
+                app:layout_constraintTop_toTopOf="@+id/tipo_txt" />
+
+            <TextView
+                android:id="@+id/Comienzo_UE_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:text="Comienzoue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Fin_UE_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finue"
+                app:layout_constraintEnd_toEndOf="@+id/Comienzo_UE_txt"
+                app:layout_constraintTop_toBottomOf="@+id/Comienzo_UE_txt" />
+
+            <TextView
+                android:id="@+id/Fecha_Comienzo_Componente_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Comienzo"
+                app:layout_constraintEnd_toStartOf="@+id/Comienzo_UE_txt"
+                app:layout_constraintTop_toTopOf="@+id/Comienzo_UE_txt" />
+
+            <TextView
+                android:id="@+id/Fecha_Fin_Componente_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fin"
+                app:layout_constraintEnd_toEndOf="@+id/Fecha_Comienzo_Componente_txt"
+                app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo_Componente_txt" />
+
+            <TextView
+                android:id="@+id/Precio_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="precio"
+                app:layout_constraintBottom_toBottomOf="@+id/Numero_txt"
+                app:layout_constraintStart_toEndOf="@+id/Numero_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     private Activity activity;
-    private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
+    private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input,
+            unidades_input, factor_input, valor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
 
     CustomAdapter(Activity activity,
                   Context context,

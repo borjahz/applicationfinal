@@ -3,8 +3,11 @@ package com.example.applicationfinal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,12 +18,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
 public class pantalla3 extends AppCompatActivity {
-    private Button button;
-    private TextView nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2;
+    private FloatingActionButton add_button2;
+    private RecyclerView recyclerView2;
+    private TextView proyecto_id, nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2;
 
     private String id, nombre, comienzo, fin, unidades, factor, valor;
-
+    GestorSQLite GSQL;
+    ArrayList<String> componente_id, nombre_input, tipo_input, numero_input, comienzo_comp_input,
+            fin_comp_input, comienzo_compue_input, fin_compue_input, precio_input;
+    CustomAdapter2 CustomAdapter2;
 
 
     @Override
@@ -29,6 +40,7 @@ public class pantalla3 extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla3);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        recyclerView2 = findViewById(R.id.recyclerView2);
 
 
         nombre_display = findViewById(R.id.nombre_display);
@@ -49,29 +61,52 @@ public class pantalla3 extends AppCompatActivity {
         }
         /*Nombre barra acción FIN*/
 
-        /*Dar funcionalidad al botón test COMIENZO*/
-        button = (Button) findViewById(R.id.boton_test_editar_componente);
-        button.setOnClickListener(new View.OnClickListener() {
+        /* Creacion y funcionalidad del boton de abajo COMIENZO*/
+        add_button2= findViewById(R.id.add_button2);
+        add_button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                openEditarComponente();
+            public void onClick(View v) {
+                Intent intent = new Intent(pantalla3.this, Anadir_Componentes.class);
+                startActivity(intent);
             }
         });
-        /*Dar funcionalidad al botón test FIN*/
+        /* Creacion y funcionalidad del boton de abajo FIN*/
+
+        /* Creacion y funcionalidad del array de datos de abajo COMIENZO*/
+        GSQL = new GestorSQLite(pantalla3.this);
+        componente_id = new ArrayList<>();
+        nombre_input =new ArrayList<>();
+        tipo_input =new ArrayList<>();
+        numero_input =new ArrayList<>();
+        comienzo_comp_input =new ArrayList<>();
+        fin_comp_input =new ArrayList<>();
+        comienzo_compue_input =new ArrayList<>();
+        fin_compue_input =new ArrayList<>();
+        precio_input = new ArrayList<>();
+
+        storeDataInArrays2();
+
+        CustomAdapter2= new CustomAdapter2(pantalla3.this, pantalla3.this, componente_id, nombre_input, tipo_input, numero_input,
+                comienzo_comp_input, fin_comp_input, comienzo_compue_input, fin_compue_input, precio_input);
+        recyclerView2.setAdapter(CustomAdapter2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(pantalla3.this));
+        /* Creacion y funcionalidad del array de datos de abajo FIN*/
     }
+
     /*Método abrir actividad COMIENZO*/
-    public void openEditarProyecto(){
+    public void openEditarProyecto() {
         Intent intent = new Intent(this, editarProyecto.class);
         startActivity(intent);
     }
     /*Método abrir actividad FIN*/
 
     /*Método abrir actividad COMIENZO*/
-    public void openAnadirComponentes(){
+    public void openAnadirComponentes() {
         Intent intent = new Intent(this, Anadir_Componentes.class);
         startActivity(intent);
     }
     /*Método abrir actividad FIN*/
+
 
     /*Creación menú COMIENZO*/
     @Override
@@ -101,18 +136,18 @@ public class pantalla3 extends AppCompatActivity {
 
 
     /*Método abrir actividad COMIENZO*/
-    public void openEditarComponente(){
+    public void openEditarComponente() {
         Intent intent = new Intent(this, editarComponente.class);
         startActivity(intent);
     }
     /*Método abrir actividad FIN*/
 
     /*Método metodo recoger COMIENZO*/
-    public void getIntentAndSetData(){
-        if(getIntent().hasExtra("id") && getIntent().hasExtra("nombre") &&
+    public void getIntentAndSetData() {
+        if (getIntent().hasExtra("id") && getIntent().hasExtra("nombre") &&
                 getIntent().hasExtra("comienzo") && getIntent().hasExtra("fin") &&
                 getIntent().hasExtra("unidades") && getIntent().hasExtra("factor") &&
-                getIntent().hasExtra("valor")){
+                getIntent().hasExtra("valor")) {
             /*Cogiendo datos del intent*/
             id = getIntent().getStringExtra("id");
             nombre = getIntent().getStringExtra("nombre");
@@ -133,9 +168,31 @@ public class pantalla3 extends AppCompatActivity {
 
             /*Escribir datos de la BD en los text view FIN*/
 
-        }else{
+        } else {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
     }
+
     /*Método recoger datos FIN*/
+    /*Método extraer y exponer datos COMIENZO*/
+    void storeDataInArrays2() {
+        Cursor cursor = GSQL.readAllData2();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "No hay datos de componentes", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                componente_id.add(cursor.getString(0));
+                nombre_input.add(cursor.getString(1));
+                tipo_input.add(cursor.getString(2));
+                numero_input.add(cursor.getString(3));
+                comienzo_comp_input.add(cursor.getString(4));
+                fin_comp_input.add(cursor.getString(5));
+                comienzo_compue_input.add(cursor.getString(6));
+                fin_compue_input.add(cursor.getString(7));
+                precio_input.add(cursor.getString(8));
+
+            }
+        }
+        /*Método extraer y exponer datos FIN*/
+    }
 }

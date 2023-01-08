@@ -9,10 +9,10 @@
 
 
     <EditText
-        android:id="@+id/Nombre_Componente"
+        android:id="@+id/Nombre_Proyecto_componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/nombreNuevoComponente"
         android:inputType="textPersonName"
@@ -22,22 +22,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/tipo_Componente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/tipoNuevoComponente"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Proyecto_componente" />
+
+    <EditText
+        android:id="@+id/numero_Componente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/numeroNuevoComponente"
+        android:inputType="number"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_Componente" />
+
+    <EditText
         android:id="@+id/Fecha_Comienzo_Componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/comienzo"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nombre_Componente" />
+        app:layout_constraintTop_toBottomOf="@+id/numero_Componente" />
 
     <EditText
         android:id="@+id/Fecha_Fin_Componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/fin"
         android:inputType="date"
@@ -49,10 +73,10 @@
         android:id="@+id/Comienzo_Unidades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/comienzoUnidades"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin_Componente" />
@@ -61,13 +85,25 @@
         android:id="@+id/Fin_Unidades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/finUnidades"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Comienzo_Unidades" />
+
+    <EditText
+        android:id="@+id/Precio_Componente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/precio"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Fin_Unidades" />
 
     <Button
         android:id="@+id/boton_crear_componente"
@@ -76,5 +112,7 @@
         android:text="@string/crearComponente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Precio_Componente" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
