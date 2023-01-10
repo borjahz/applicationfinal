@@ -28,4 +28,5 @@
     <string name="tipoNuevoComponente">Tipo del nuevo componente</string>
     <string name="numeroNuevoComponente">Número del nuevo componente</string>
     <string name="precio">Precio del nuevo componente</string>
+    <string name="id_fk">Escriba el id del proyecto</string>
 </resources>

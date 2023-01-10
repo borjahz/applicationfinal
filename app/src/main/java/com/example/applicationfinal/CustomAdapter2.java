@@ -18,13 +18,13 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     private Context context;
     private Activity activity;
-    private ArrayList componente_id, nombre_input2, tipo_input, numero_input, comienzo_comp_input, fin_comp_input,
+    private ArrayList componente_id, proyecto_id_fk_input, tipo_input, numero_input, comienzo_comp_input, fin_comp_input,
             comienzo_compue_input, fin_compue_input, precio_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
 
     CustomAdapter2(Activity activity,
                    Context context,
                    ArrayList proyecto_id,
-                   ArrayList nombre_input2,
+                   ArrayList proyecto_id_fk_input,
                    ArrayList tipo_input,
                    ArrayList numero_input,
                    ArrayList comienzo_comp_input,
@@ -35,7 +35,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         this.activity = activity;
         this.context = context;
         this.componente_id = proyecto_id;
-        this.nombre_input2 = nombre_input2;
+        this.proyecto_id_fk_input = proyecto_id_fk_input;
         this.tipo_input = tipo_input;
         this.numero_input = numero_input;
         this.comienzo_comp_input = comienzo_comp_input;
@@ -56,7 +56,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
         holder.componente_id_txt.setText(String.valueOf(componente_id.get(position)));
-        holder.Nombre_Proyecto_txt2.setText(String.valueOf(nombre_input2.get(position)));
+        holder.Proyecto_id_fk_txt.setText(String.valueOf(proyecto_id_fk_input.get(position)));
         holder.tipo_txt.setText(String.valueOf(tipo_input.get(position)));
         holder.Numero_txt.setText(String.valueOf(numero_input.get(position)));
         holder.Fecha_Comienzo_Componente_txt.setText(String.valueOf(comienzo_comp_input.get(position)));
@@ -74,7 +74,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     public class MyViewHolder2 extends RecyclerView.ViewHolder {
 
-        TextView componente_id_txt, Nombre_Proyecto_txt2, tipo_txt, Numero_txt, Fecha_Comienzo_Componente_txt, Fecha_Fin_Componente_txt,
+        TextView componente_id_txt, Proyecto_id_fk_txt, tipo_txt, Numero_txt, Fecha_Comienzo_Componente_txt, Fecha_Fin_Componente_txt,
                 Fecha_Comienzo_UE_txt, Fecha_Fin_UE_txt, Precio_txt; /*Mismos nombres que en recycle_view_row_comp*/
         ConstraintLayout secondaryLayout;
 
@@ -82,7 +82,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         public MyViewHolder2(@NonNull View itemvView) {
             super(itemvView);
             componente_id_txt = itemvView.findViewById(R.id.componente_id_txt);
-            Nombre_Proyecto_txt2 = itemvView.findViewById(R.id.Nombre_Proyecto_componente_txt);
+            Proyecto_id_fk_txt = itemvView.findViewById(R.id.Proyecto_id_fk_txt);
             tipo_txt = itemvView.findViewById(R.id.tipo_txt);
             Numero_txt = itemvView.findViewById(R.id.Numero_txt);
             Fecha_Comienzo_Componente_txt = itemvView.findViewById(R.id.Fecha_Comienzo_Componente_txt);

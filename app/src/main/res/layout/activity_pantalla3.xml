@@ -23,9 +23,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/id_proyecto_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="id"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/nombre_display"
+            app:layout_constraintEnd_toStartOf="@+id/nombre_display" />
+
+        <TextView
             android:id="@+id/nombre_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="nombre"
             android:textSize="25sp"
             android:textStyle="bold"

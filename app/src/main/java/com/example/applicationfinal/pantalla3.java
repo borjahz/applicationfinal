@@ -29,7 +29,7 @@ public class pantalla3 extends AppCompatActivity {
 
     private String id, nombre, comienzo, fin, unidades, factor, valor;
     GestorSQLite GSQL;
-    ArrayList<String> componente_id, nombre_input, tipo_input, numero_input, comienzo_comp_input,
+    ArrayList<String> componente_id, proyecto_id_fk_input, tipo_input, numero_input, comienzo_comp_input,
             fin_comp_input, comienzo_compue_input, fin_compue_input, precio_input;
     CustomAdapter2 CustomAdapter2;
 
@@ -43,6 +43,7 @@ public class pantalla3 extends AppCompatActivity {
         recyclerView2 = findViewById(R.id.recyclerView2);
 
 
+        proyecto_id = findViewById(R.id.id_proyecto_display);
         nombre_display = findViewById(R.id.nombre_display);
         comienzo_display = findViewById(R.id.comienzo_display);
         fin_display = findViewById(R.id.fin_display);
@@ -75,7 +76,7 @@ public class pantalla3 extends AppCompatActivity {
         /* Creacion y funcionalidad del array de datos de abajo COMIENZO*/
         GSQL = new GestorSQLite(pantalla3.this);
         componente_id = new ArrayList<>();
-        nombre_input =new ArrayList<>();
+        proyecto_id_fk_input =new ArrayList<>();
         tipo_input =new ArrayList<>();
         numero_input =new ArrayList<>();
         comienzo_comp_input =new ArrayList<>();
@@ -86,7 +87,7 @@ public class pantalla3 extends AppCompatActivity {
 
         storeDataInArrays2();
 
-        CustomAdapter2= new CustomAdapter2(pantalla3.this, pantalla3.this, componente_id, nombre_input, tipo_input, numero_input,
+        CustomAdapter2= new CustomAdapter2(pantalla3.this, pantalla3.this, componente_id, proyecto_id_fk_input, tipo_input, numero_input,
                 comienzo_comp_input, fin_comp_input, comienzo_compue_input, fin_compue_input, precio_input);
         recyclerView2.setAdapter(CustomAdapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(pantalla3.this));
@@ -158,6 +159,7 @@ public class pantalla3 extends AppCompatActivity {
             valor = getIntent().getStringExtra("valor");
 
             /*Escribir datos de la BD en los text view COMIENZO*/
+            proyecto_id.setText(id);
             nombre_display.setText(nombre);
             comienzo_display.setText(comienzo);
             fin_display.setText(fin);
@@ -182,7 +184,7 @@ public class pantalla3 extends AppCompatActivity {
         } else {
             while (cursor.moveToNext()) {
                 componente_id.add(cursor.getString(0));
-                nombre_input.add(cursor.getString(1));
+                proyecto_id_fk_input.add(cursor.getString(1));
                 tipo_input.add(cursor.getString(2));
                 numero_input.add(cursor.getString(3));
                 comienzo_comp_input.add(cursor.getString(4));

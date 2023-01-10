@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class Anadir_Componentes extends AppCompatActivity {
     private Button button;
-    private EditText nombre_input, tipo_input, numero_input, comienzo_comp_input, fin_comp_input,
+    private EditText proyecto_id_fk_input, tipo_input, numero_input, comienzo_comp_input, fin_comp_input,
             comienzo_compue_input, fin_compue_input, precio_input;
 
     @Override
@@ -18,7 +18,7 @@ public class Anadir_Componentes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anadir_componentes);
 
-        nombre_input = findViewById(R.id.Nombre_Proyecto_componente);
+        proyecto_id_fk_input = findViewById(R.id.Proyecto_id_fk);
         tipo_input = findViewById(R.id.tipo_Componente);
         numero_input = findViewById(R.id.numero_Componente);
         comienzo_comp_input = findViewById(R.id.Fecha_Comienzo_Componente);
@@ -33,7 +33,7 @@ public class Anadir_Componentes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 GestorSQLite GSQL = new GestorSQLite(Anadir_Componentes.this);
-                GSQL.anadirComponente (nombre_input.getText().toString().trim(),
+                GSQL.anadirComponente (proyecto_id_fk_input.getText().toString().trim(),
                         tipo_input.getText().toString().trim(),
                         Integer.valueOf(numero_input.getText().toString().trim()),
                         Integer.valueOf(comienzo_comp_input.getText().toString().trim()),

@@ -25,6 +25,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     private static final String COLUMN_FACTOR = "Factor_Unidades";
     private static final String COLUMN_VALOR = "Valor_Unidades";
     private static final String COLUMN_ID2 = "_id_componente";
+    private static final String COLUMN_IDFK = "_id_fk";
     private static final String COLUMN_TIPO = "Tipo_Componente";
     private static final String COLUMN_NUMERO = "Numero_Componente";
     private static final String COLUMN_COM_COMP = "Comienzo_Componente";
@@ -55,7 +56,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
 
         String table2 = "CREATE TABLE " + TABLE_NAME2 +
                 " (" + COLUMN_ID2 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NOMBRE + " TEXT, " +
+                COLUMN_IDFK + " INTEGER, " +
                 COLUMN_TIPO + " TEXT, " +
                 COLUMN_NUMERO + " INTEGER, " +
                 COLUMN_COM_COMP + " INTEGER, " +
@@ -93,12 +94,12 @@ public class GestorSQLite extends SQLiteOpenHelper {
         }
     }
 
-    void anadirComponente(String tipo_componente, String nombre, int numero, int comienzo_componente, int fin_componente,
+    void anadirComponente(String tipo_componente, String id_fk, int numero, int comienzo_componente, int fin_componente,
                           int comienzo_componente_ue, int fin_componente_ue, int precio) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_NOMBRE, nombre);
+        cv.put(COLUMN_IDFK, id_fk);
         cv.put(COLUMN_TIPO, tipo_componente);
         cv.put(COLUMN_NUMERO, numero);
         cv.put(COLUMN_COM_COMP, comienzo_componente);

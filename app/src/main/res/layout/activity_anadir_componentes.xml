@@ -9,13 +9,13 @@
 
 
     <EditText
-        android:id="@+id/Nombre_Proyecto_componente"
+        android:id="@+id/Proyecto_id_fk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="@string/nombreNuevoComponente"
-        android:inputType="textPersonName"
+        android:hint="@string/"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:hint="@string/tipoNuevoComponente"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nombre_Proyecto_componente" />
+        app:layout_constraintTop_toBottomOf="@+id/Proyecto_id_fk" />
 
     <EditText
         android:id="@+id/numero_Componente"
