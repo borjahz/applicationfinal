@@ -2,6 +2,7 @@ package com.example.applicationfinal;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +65,26 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         holder.Fecha_Comienzo_UE_txt.setText(String.valueOf(comienzo_compue_input.get(position)));
         holder.Fecha_Fin_UE_txt.setText(String.valueOf(fin_compue_input.get(position)));
         holder.Precio_txt.setText(String.valueOf(precio_input.get(position)));
-    }
+
+        /*Convertir Recycleview en botón COMIENZO*/
+        holder.secondaryLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent intent = new Intent(context, editarComponente.class);
+                intent.putExtra("id_componente", String.valueOf(componente_id.get(holder.getAdapterPosition())));
+                intent.putExtra("id_fk", String.valueOf(proyecto_id_fk_input.get(holder.getAdapterPosition())));
+                intent.putExtra("tipo", String.valueOf(tipo_input.get(holder.getAdapterPosition())));
+                intent.putExtra("numero", String.valueOf(numero_input.get(holder.getAdapterPosition())));
+                intent.putExtra("comienzo_componente", String.valueOf(comienzo_comp_input.get(holder.getAdapterPosition())));
+                intent.putExtra("fin_componente", String.valueOf(fin_comp_input.get(holder.getAdapterPosition())));
+                intent.putExtra("comienzoue_componente", String.valueOf(comienzo_compue_input.get(holder.getAdapterPosition())));
+                intent.putExtra("finue_componente", String.valueOf(fin_compue_input.get(holder.getAdapterPosition())));
+                intent.putExtra("precio", String.valueOf(precio_input.get(holder.getAdapterPosition())));
+                activity.startActivityForResult(intent, 1);
+                return true;
+            }
+        });
+    };
 
     @Override
     public int getItemCount() {

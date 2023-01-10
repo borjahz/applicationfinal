@@ -156,6 +156,26 @@ public class GestorSQLite extends SQLiteOpenHelper {
             Toast.makeText(context, "Editado correctamente", Toast.LENGTH_SHORT).show();
         }
 
+    }    void updateData2(String row_id_comp, String row_id_fk, String tipo, String numero, String comienzo_comp,
+                          String fin_comp,  String comienzo_compue, String fin_compue, String precio) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_IDFK, row_id_fk);
+        cv.put(COLUMN_TIPO, tipo);
+        cv.put(COLUMN_NUMERO, numero);
+        cv.put(COLUMN_COM_COMP, comienzo_comp);
+        cv.put(COLUMN_FIN_COMP, fin_comp);
+        cv.put(COLUMN_COMUE_COMP, comienzo_compue);
+        cv.put(COLUMN_FINUE_COMP, fin_compue);
+        cv.put(COLUMN_PRECIO, precio);
+
+        long result = db.update(TABLE_NAME2, cv, "_id_componente=?", new String[]{row_id_comp});
+        if (result == -1) {
+            Toast.makeText(context, "Error al editar componente", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Componente editado correctamente", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     void deleteOneRow(String row_id) {

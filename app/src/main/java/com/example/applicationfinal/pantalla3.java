@@ -1,6 +1,7 @@
 package com.example.applicationfinal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -87,61 +88,22 @@ public class pantalla3 extends AppCompatActivity {
 
         storeDataInArrays2();
 
-        CustomAdapter2= new CustomAdapter2(pantalla3.this, pantalla3.this, componente_id, proyecto_id_fk_input, tipo_input, numero_input,
+        CustomAdapter2= new CustomAdapter2(pantalla3.this, this, componente_id, proyecto_id_fk_input, tipo_input, numero_input,
                 comienzo_comp_input, fin_comp_input, comienzo_compue_input, fin_compue_input, precio_input);
         recyclerView2.setAdapter(CustomAdapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(pantalla3.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/
     }
 
-    /*Método abrir actividad COMIENZO*/
-    public void openEditarProyecto() {
-        Intent intent = new Intent(this, editarProyecto.class);
-        startActivity(intent);
-    }
-    /*Método abrir actividad FIN*/
-
-    /*Método abrir actividad COMIENZO*/
-    public void openAnadirComponentes() {
-        Intent intent = new Intent(this, Anadir_Componentes.class);
-        startActivity(intent);
-    }
-    /*Método abrir actividad FIN*/
-
-
-    /*Creación menú COMIENZO*/
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_proyecto, menu);
-        return true;
-    }
-    /*Creación menú FIN*/
-
-    /*Funcionalidad del menú COMIENZO*/
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.item1:
-                openEditarProyecto();
-
-                return true;
-            case R.id.item2:
-                openAnadirComponentes();
-                return true;
-
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
         }
-        return super.onOptionsItemSelected(item);
     }
-    /*Funcionalidad del menú FIN*/
 
 
-    /*Método abrir actividad COMIENZO*/
-    public void openEditarComponente() {
-        Intent intent = new Intent(this, editarComponente.class);
-        startActivity(intent);
-    }
-    /*Método abrir actividad FIN*/
 
     /*Método metodo recoger COMIENZO*/
     public void getIntentAndSetData() {

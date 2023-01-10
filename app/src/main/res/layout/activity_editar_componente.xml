@@ -9,72 +9,110 @@
 
 
     <EditText
-        android:id="@+id/Nombre_Componente"
+        android:id="@+id/Proyecto_id_fk_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="@string/nuevoNombreComponente"
-        android:inputType="textPersonName"
+        android:hint="@string/id_fk"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Fecha_Comienzo_Componente"
+        android:id="@+id/tipo_Componente_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/tipoNuevoComponente"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Proyecto_id_fk_edit" />
+
+    <EditText
+        android:id="@+id/numero_Componente_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/numeroNuevoComponente"
+        android:inputType="number"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_Componente_edit" />
+
+    <EditText
+        android:id="@+id/Fecha_Comienzo_Componente_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/comienzo"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nombre_Componente" />
+        app:layout_constraintTop_toBottomOf="@+id/numero_Componente_edit" />
 
     <EditText
-        android:id="@+id/Fecha_Fin_Componente"
+        android:id="@+id/Fecha_Fin_Componente_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/fin"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo_Componente" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo_Componente_edit" />
 
     <EditText
-        android:id="@+id/Comienzo_Unidades"
+        android:id="@+id/Comienzo_Unidades_componente_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/comienzoUnidades"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin_Componente" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_Fin_Componente_edit" />
 
     <EditText
-        android:id="@+id/Fin_Unidades"
+        android:id="@+id/Fin_Unidades_componente_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/finUnidades"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Comienzo_Unidades" />
+        app:layout_constraintTop_toBottomOf="@+id/Comienzo_Unidades_componente_edit" />
+
+    <EditText
+        android:id="@+id/Precio_Componente_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/precio"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Fin_Unidades_componente_edit" />
 
     <Button
         android:id="@+id/boton_editar_componente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/guardarCambios"
+        android:text="@string/editarComponente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Precio_Componente_edit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
