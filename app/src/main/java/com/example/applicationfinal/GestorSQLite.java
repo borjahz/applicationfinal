@@ -56,14 +56,15 @@ public class GestorSQLite extends SQLiteOpenHelper {
 
         String table2 = "CREATE TABLE " + TABLE_NAME2 +
                 " (" + COLUMN_ID2 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_IDFK + " INTEGER, " +
-                COLUMN_TIPO + " TEXT, " +
+                COLUMN_IDFK + " INTEGER," +
+                COLUMN_TIPO + " TEXT NOT NULL, " +
                 COLUMN_NUMERO + " INTEGER, " +
                 COLUMN_COM_COMP + " INTEGER, " +
                 COLUMN_FIN_COMP + " INTEGER, " +
                 COLUMN_COMUE_COMP + " INTEGER, " +
                 COLUMN_FINUE_COMP + " INTEGER, " +
-                COLUMN_PRECIO + " INTEGER); ";
+                COLUMN_PRECIO + " INTEGER," +
+                " FOREIGN KEY ("+COLUMN_IDFK+") REFERENCES " + TABLE_NAME + "("+COLUMN_ID+"));";
         db.execSQL(table2);
 
 
@@ -72,6 +73,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
         onCreate(db);
     }
 
@@ -90,7 +92,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
         if (result == -1) {
             Toast.makeText(context, "Error al añadir proyecto", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Añandido correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Añadido correctamente", Toast.LENGTH_SHORT).show();
         }
     }
 
