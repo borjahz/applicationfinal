@@ -186,9 +186,20 @@ public class GestorSQLite extends SQLiteOpenHelper {
         if(result ==-1)
 
         {
-        Toast.makeText(context, "Error al borrar proyecto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Error al borrar proyecto", Toast.LENGTH_SHORT).show();
         }else{
-        Toast.makeText(context, "Borrado correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Borrado correctamente", Toast.LENGTH_SHORT).show();
         }
-}
+    }
+    void deleteOneRow2(String row_id_comp) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME2, "_id_componente=?", new String[]{row_id_comp});
+        if(result ==-1)
+
+        {
+            Toast.makeText(context, "Error al borrar componente", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Componente borrado correctamente", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
