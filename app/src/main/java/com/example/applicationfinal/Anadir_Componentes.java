@@ -34,7 +34,7 @@ public class Anadir_Componentes extends AppCompatActivity {
             public void onClick(View view) {
                 GestorSQLite GSQL = new GestorSQLite(Anadir_Componentes.this);
                 GSQL.anadirComponente (proyecto_id_fk_input.getText().toString().trim(),
-                        tipo_input.getText().toString().trim(),
+                                        tipo_input.getText().toString().trim(),
                         Integer.valueOf(numero_input.getText().toString().trim()),
                         Integer.valueOf(comienzo_comp_input.getText().toString().trim()),
                         Integer.valueOf(fin_comp_input.getText().toString().trim()),
@@ -47,6 +47,7 @@ public class Anadir_Componentes extends AppCompatActivity {
         /*Dar funcionalidad al botón FIN*/
 
     }
+
     /*Método cerrar actividad COMIENZO*/
     public void closeAnadirComponentes(){
         Intent intent = new Intent(this, Anadir_Componentes.class);

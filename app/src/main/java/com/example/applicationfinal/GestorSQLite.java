@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 public class GestorSQLite extends SQLiteOpenHelper {
+
     private Context context;
     private static final String DATABASE_NAME = "Proyectos.db";
     private static final int DATABASE_VERSION = 1;
@@ -56,7 +57,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
 
         String table2 = "CREATE TABLE " + TABLE_NAME2 +
                 " (" + COLUMN_ID2 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_IDFK + " INTEGER," +
+                COLUMN_IDFK + " INTEGER NOT NULL," +
                 COLUMN_TIPO + " TEXT NOT NULL, " +
                 COLUMN_NUMERO + " INTEGER, " +
                 COLUMN_COM_COMP + " INTEGER, " +
@@ -200,6 +201,14 @@ public class GestorSQLite extends SQLiteOpenHelper {
             Toast.makeText(context, "Error al borrar componente", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(context, "Componente borrado correctamente", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        if (!db.isReadOnly()) {
+            // Enable foreign key constraints
+            db.execSQL("PRAGMA foreign_keys=ON;");
         }
     }
 }
