@@ -5,10 +5,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FloatingActionButton add_button;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     GestorSQLite GSQL;
     ArrayList<String> proyecto_id, nombre_input, comienzo_input,
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        swipeRefreshLayout = findViewById(R.id.swipeRefresh);
 
         recyclerView = findViewById(R.id.recyclerView);
         /* Creacion y funcionalidad del boton de abajo COMIENZO*/
@@ -67,6 +71,26 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/
+
+        swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        if(swipeRefreshLayout!=null) {
+                            proyecto_id.clear();
+                            nombre_input.clear();
+                            comienzo_input.clear();
+                            fin_input.clear();
+                            unidades_input.clear();
+                            factor_input.clear();
+                            valor_input.clear();
+                        }
+                        storeDataInArrays();
+                        customAdapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+        );
 
 
     }

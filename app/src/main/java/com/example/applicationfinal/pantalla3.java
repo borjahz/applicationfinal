@@ -6,6 +6,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,6 +28,9 @@ public class pantalla3 extends AppCompatActivity {
     private FloatingActionButton add_button2;
     private RecyclerView recyclerView2;
     private TextView proyecto_id, nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2;
+    private SwipeRefreshLayout swipeRefreshLayout2;
+
+
 
     private String id, nombre, comienzo, fin, unidades, factor, valor;
     GestorSQLite GSQL;
@@ -39,9 +43,10 @@ public class pantalla3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla3);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView2 = findViewById(R.id.recyclerView2);
+        swipeRefreshLayout2 = findViewById(R.id.swipeRefresh2);
+
 
 
         proyecto_id = findViewById(R.id.id_proyecto_display);
@@ -53,8 +58,10 @@ public class pantalla3 extends AppCompatActivity {
         valor_display = findViewById(R.id.valor_display);
         unidades_display2 = findViewById(R.id.unidades_display2);
 
-
+        System.out.println("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
         getIntentAndSetData();
+        System.out.println("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+
 
         /*Nombre barra acción COMIENZO*/
         ActionBar ab = getSupportActionBar();
@@ -93,6 +100,29 @@ public class pantalla3 extends AppCompatActivity {
         recyclerView2.setAdapter(CustomAdapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(pantalla3.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/
+
+       swipeRefreshLayout2.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        if(swipeRefreshLayout2!=null) {
+                            componente_id.clear();
+                            proyecto_id_fk_input.clear();
+                            tipo_input.clear();
+                            numero_input.clear();
+                            comienzo_comp_input.clear();
+                            fin_comp_input.clear();
+                            comienzo_compue_input.clear();
+                            fin_compue_input.clear();
+                            precio_input.clear();
+                        }
+                        getIntentAndSetData();
+                        storeDataInArrays2();
+                        CustomAdapter2.notifyDataSetChanged();
+                        swipeRefreshLayout2.setRefreshing(false);
+                    }
+                }
+        );
     }
 
     @Override
@@ -133,7 +163,7 @@ public class pantalla3 extends AppCompatActivity {
             /*Escribir datos de la BD en los text view FIN*/
 
         } else {
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error al recoger datos de proyecto", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -24,7 +24,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     CustomAdapter2(Activity activity,
                    Context context,
-                   ArrayList proyecto_id,
+                   ArrayList componente_id,
                    ArrayList proyecto_id_fk_input,
                    ArrayList tipo_input,
                    ArrayList numero_input,
@@ -35,7 +35,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
                    ArrayList precio_input) {
         this.activity = activity;
         this.context = context;
-        this.componente_id = proyecto_id;
+        this.componente_id = componente_id;
         this.proyecto_id_fk_input = proyecto_id_fk_input;
         this.tipo_input = tipo_input;
         this.numero_input = numero_input;

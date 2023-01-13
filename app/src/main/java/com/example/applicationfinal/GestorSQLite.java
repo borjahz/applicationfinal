@@ -97,10 +97,12 @@ public class GestorSQLite extends SQLiteOpenHelper {
         }
     }
 
-    void anadirComponente(String tipo_componente, String id_fk, int numero, int comienzo_componente, int fin_componente,
+    void anadirComponente(String id_fk, String tipo_componente, int numero, int comienzo_componente, int fin_componente,
                           int comienzo_componente_ue, int fin_componente_ue, int precio) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        System.out.println("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+        System.out.println(tipo_componente + id_fk + String.valueOf(numero) + String.valueOf(comienzo_componente) + String.valueOf(fin_componente)+ String.valueOf(comienzo_componente_ue) + String.valueOf(fin_componente_ue) + String.valueOf(precio));
 
         cv.put(COLUMN_IDFK, id_fk);
         cv.put(COLUMN_TIPO, tipo_componente);
@@ -122,7 +124,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
-
+        System.out.println(db);
         Cursor cursor = null;
         if (db != null) {
             cursor = db.rawQuery(query, null);
@@ -131,7 +133,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     }
 
     Cursor readAllData2() {
-        String query = "SELECT * FROM " + TABLE_NAME2;
+        String query = "SELECT * FROM " + TABLE_NAME2 /*+ "WHERE id_fk = '" + _id + "';"*/;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

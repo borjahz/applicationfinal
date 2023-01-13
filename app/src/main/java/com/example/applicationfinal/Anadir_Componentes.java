@@ -18,6 +18,8 @@ public class Anadir_Componentes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anadir_componentes);
 
+
+
         proyecto_id_fk_input = findViewById(R.id.Proyecto_id_fk);
         tipo_input = findViewById(R.id.tipo_Componente);
         numero_input = findViewById(R.id.numero_Componente);
@@ -42,6 +44,7 @@ public class Anadir_Componentes extends AppCompatActivity {
                         Integer.valueOf(fin_compue_input.getText().toString().trim()),
                         Integer.valueOf(precio_input.getText().toString().trim())
                 );
+                finish();
             }
         });
         /*Dar funcionalidad al botón FIN*/
@@ -54,4 +57,5 @@ public class Anadir_Componentes extends AppCompatActivity {
         finish();
     }
     /*Método cerrar actividad FIN*/
+
 }

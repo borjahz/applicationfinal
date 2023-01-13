@@ -51,6 +51,7 @@ public class introducirdatos extends AppCompatActivity implements DatePickerDial
                         Integer.valueOf(factor_input.getText().toString().trim()),
                         Integer.valueOf(valor_input.getText().toString().trim())
                 );
+                finish();
             }
         });
     }

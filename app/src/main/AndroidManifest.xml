@@ -15,8 +15,7 @@
         <activity
             android:name=".editarComponente"
             android:exported="false"
-            android:label="@string/editarComponente"
-            android:parentActivityName=".pantalla3">
+            android:label="@string/editarComponente">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -24,8 +23,7 @@
         <activity
             android:name=".Anadir_Componentes"
             android:exported="false"
-            android:label="@string/anadirComponentes"
-            android:parentActivityName=".pantalla3">
+            android:label="@string/anadirComponentes">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -34,7 +32,7 @@
             android:name=".editarProyecto"
             android:exported="false"
             android:label="@string/editarProyecto"
-            android:parentActivityName=".MainActivity">
+>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,8 +40,7 @@
         <activity
             android:name=".pantalla3"
             android:exported="false"
-            android:label="@string/pantalla3"
-            android:parentActivityName=".MainActivity">
+            android:label="@string/pantalla3">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -51,8 +48,7 @@
         <activity
             android:name=".introducirdatos"
             android:exported="false"
-            android:label="@string/introducirDatos"
-            android:parentActivityName=".MainActivity">
+            android:label="@string/introducirDatos">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
