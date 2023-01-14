@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             fin_input, unidades_input, factor_input, valor_input;
     CustomAdapter customAdapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

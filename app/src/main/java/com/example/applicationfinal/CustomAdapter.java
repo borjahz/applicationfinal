@@ -1,5 +1,7 @@
 package com.example.applicationfinal;
 
+import static java.lang.Long.parseLong;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,7 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                   ArrayList fin_input,
                   ArrayList unidades_input,
                   ArrayList factor_input,
-                  ArrayList valor_input){
+                  ArrayList valor_input) {
         this.activity = activity;
         this.context = context;
         this.proyecto_id = proyecto_id;
@@ -43,10 +46,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.factor_input = factor_input;
         this.valor_input = valor_input;
     }
-    String s = String.valueOf(comienzo_input);
-    long l = Long.valueOf(s);
-    int i = Integer.valueOf(s);
-    String comienzo_input_date = unixToDate(comienzo_input);
+
 
     @NonNull
     @Override
@@ -56,14 +56,26 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return new MyViewHolder(view);
 
     }
+
     /*Aquí le dices el campo donde tiene que ir cada input en el recycleview COMIENZO*/
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        long[] Arr = new long[comienzo_input.size()];
+        for (int i = 0; i < comienzo_input.size(); i++) {
+            Arr[i] = Long.parseLong(String.valueOf(comienzo_input.get(i)));
+            System.out.println(Arr[i] + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            Date date = new java.util.Date(Arr[i] * 1000);
+            // the format of your date
+            SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yy hh-mm");
+            // give a timezone reference for formatting (see comment at the bottom)
+            String comienzo_input_date = sdf.format(date);
+            holder.Fecha_Comienzo_txt.setText(comienzo_input_date);
 
+        }
 
         holder.proyecto_id_txt.setText(String.valueOf(proyecto_id.get(position)));
         holder.Nombre_Proyecto_txt.setText(String.valueOf(nombre_input.get(position)));
-        holder.Fecha_Comienzo_txt.setText(comienzo_input_date);
+
         holder.Fecha_Fin_txt.setText(String.valueOf(fin_input.get(position)));
         holder.Unidades_txt.setText(String.valueOf(unidades_input.get(position)));
         holder.Factor_txt.setText(String.valueOf(factor_input.get(position)));
@@ -118,7 +130,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         ConstraintLayout mainLayout;
 
         /*Identificar cada uno de los elementos del recycle view COMIENZO*/
-        public MyViewHolder (@NonNull View itemvView) {
+        public MyViewHolder(@NonNull View itemvView) {
             super(itemvView);
             proyecto_id_txt = itemvView.findViewById(R.id.proyecto_id_txt);
             Nombre_Proyecto_txt = itemvView.findViewById(R.id.Nombre_Proyecto_txt);
@@ -135,6 +147,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     public void unixToDate() {
+        String s = String.valueOf(comienzo_input);
+        long l = Long.valueOf(s);
         Date date = new java.util.Date(l * 1000L);
         // the format of your date
         SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
@@ -143,5 +157,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         String formattedDate = sdf.format(date);
         System.out.println(formattedDate);
     }
+
 
 }
