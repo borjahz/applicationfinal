@@ -7,7 +7,15 @@
     tools:context=".introducirdatos"
     android:padding="30dp">
 
-
+    <ImageButton
+        android:id="@+id/botton_fechafinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="256dp"
+        app:layout_constraintStart_toEndOf="@+id/Fecha_Comienzo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     <EditText
         android:id="@+id/Nombre_Proyecto"
