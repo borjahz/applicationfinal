@@ -135,6 +135,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     Cursor readAllData2() {
 
         String query = "SELECT * FROM "  + TABLE_NAME2 + " WHERE _id_fk = '" + id + "';";
+
         SQLiteDatabase db = this.getReadableDatabase();
         System.out.println("miaumiau");
         System.out.println(id);
@@ -143,6 +144,18 @@ public class GestorSQLite extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+    /*Para leer los costes de cada componente*/
+    Cursor readAllData3(){
+        String query = "SELECT Precio_Componente FROM "  + TABLE_NAME2 + " WHERE _id_fk = '" + id + "';";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+
+
     }
 
 
