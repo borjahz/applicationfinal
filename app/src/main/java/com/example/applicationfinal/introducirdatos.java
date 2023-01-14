@@ -23,6 +23,8 @@ public class introducirdatos extends AppCompatActivity  {
 
     DatePickerDialog dpd1;
     DatePickerDialog dpd2;
+    long comienzo_input_unix;
+    long fin_input_unix;
     private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input;
 
     @Override
@@ -56,9 +58,12 @@ public class introducirdatos extends AppCompatActivity  {
                     }
                 }, day, month, year);
                 dpd1.show();
+                comienzo_input_unix = (c.getTimeInMillis() / 1000);
             }
 
         });
+
+
 
 
         buttonf = findViewById(R.id.botton_fechafinal);
@@ -70,6 +75,7 @@ public class introducirdatos extends AppCompatActivity  {
                 int day = c2.get(Calendar.DAY_OF_MONTH);
                 int month = c2.get(Calendar.MONTH);
                 int year = c2.get(Calendar.YEAR);
+                System.out.println(c2.getTimeInMillis());
                 dpd2 = new DatePickerDialog(introducirdatos.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
@@ -77,6 +83,7 @@ public class introducirdatos extends AppCompatActivity  {
                     }
                 }, day, month, year);
                 dpd2.show();
+                fin_input_unix = (c2.getTimeInMillis() / 1000);
             }
         });
 
@@ -87,8 +94,8 @@ public class introducirdatos extends AppCompatActivity  {
             public void onClick(View view) {
                 GestorSQLite GSQL = new GestorSQLite(introducirdatos.this);
                 GSQL.anadirProyecto(nombre_input.getText().toString().trim(),
-                        Integer.valueOf(comienzo_input.getText().toString().trim()),
-                        Integer.valueOf(fin_input.getText().toString().trim()),
+                        safeLongToInt(comienzo_input_unix),
+                        safeLongToInt(fin_input_unix),
                         unidades_input.getText().toString().trim(),
                         Integer.valueOf(factor_input.getText().toString().trim()),
                         Integer.valueOf(valor_input.getText().toString().trim())
@@ -96,7 +103,19 @@ public class introducirdatos extends AppCompatActivity  {
                 finish();
             }
         });
-    }}
+    }
+    public static int safeLongToInt(long l) {
+        if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException
+                    (l + " cannot be cast to int without changing its value.");
+        }
+        return (int) l;
+    }
+    public static String longToString(long l) {
+        return String.valueOf(l);
+    }
+
+}
         /*Dar funcionalidad al botón FIN*/
 
 
