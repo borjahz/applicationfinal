@@ -149,7 +149,7 @@ public class pantalla3 extends AppCompatActivity {
             unidades = getIntent().getStringExtra("unidades");
             factor = getIntent().getStringExtra("factor");
             valor = getIntent().getStringExtra("valor");
-
+            DataHolder2.getInstance().setData(String.valueOf(id));
             /*Escribir datos de la BD en los text view COMIENZO*/
             proyecto_id.setText(id);
             nombre_display.setText(nombre);
