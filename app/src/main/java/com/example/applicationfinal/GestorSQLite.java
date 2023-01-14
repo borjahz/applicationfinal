@@ -34,7 +34,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
     private static final String COLUMN_COMUE_COMP = "Comienzo_Componente_UE";
     private static final String COLUMN_FINUE_COMP = "Fin_Componente_UE";
     private static final String COLUMN_PRECIO = "Precio_Componente";
-    private static final String id= DataHolder2.getInstance().getData();
+    String id= DataHolder2.getInstance().getData();
     GestorSQLite(@Nullable/*Añadido "Nullable"*/ Context context
             /* Borrado ", String name, SQLiteDatabase.CursorFactory factory, int version" (no está en el vídeo y daba error)*/) {
         super(context, DATABASE_NAME, null /*"null" sustituye a "factory"*/, DATABASE_VERSION);
