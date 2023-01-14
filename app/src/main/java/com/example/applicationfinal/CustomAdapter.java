@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
@@ -20,6 +22,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Activity activity;
     private ArrayList proyecto_id, nombre_input, comienzo_input, fin_input,
             unidades_input, factor_input, valor_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
+
 
     CustomAdapter(Activity activity,
                   Context context,
@@ -40,6 +43,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.factor_input = factor_input;
         this.valor_input = valor_input;
     }
+    String s = String.valueOf(comienzo_input);
+    long l = Long.valueOf(s);
+    int i = Integer.valueOf(s);
+    String comienzo_input_date = unixToDate(comienzo_input);
 
     @NonNull
     @Override
@@ -52,9 +59,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     /*Aquí le dices el campo donde tiene que ir cada input en el recycleview COMIENZO*/
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
+
         holder.proyecto_id_txt.setText(String.valueOf(proyecto_id.get(position)));
         holder.Nombre_Proyecto_txt.setText(String.valueOf(nombre_input.get(position)));
-        holder.Fecha_Comienzo_txt.setText(String.valueOf(comienzo_input.get(position)));
+        holder.Fecha_Comienzo_txt.setText(comienzo_input_date);
         holder.Fecha_Fin_txt.setText(String.valueOf(fin_input.get(position)));
         holder.Unidades_txt.setText(String.valueOf(unidades_input.get(position)));
         holder.Factor_txt.setText(String.valueOf(factor_input.get(position)));
@@ -123,6 +132,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         }
         /*Identificar cada uno de los elementos del recycle view FIN*/
 
+    }
+
+    public void unixToDate() {
+        Date date = new java.util.Date(l * 1000L);
+        // the format of your date
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
+        // give a timezone reference for formatting (see comment at the bottom)
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-0"));
+        String formattedDate = sdf.format(date);
+        System.out.println(formattedDate);
     }
 
 }
