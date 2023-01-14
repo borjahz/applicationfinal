@@ -34,13 +34,13 @@ public class GestorSQLite extends SQLiteOpenHelper {
     private static final String COLUMN_COMUE_COMP = "Comienzo_Componente_UE";
     private static final String COLUMN_FINUE_COMP = "Fin_Componente_UE";
     private static final String COLUMN_PRECIO = "Precio_Componente";
-
-
+    private static final String id= DataHolder2.getInstance().getData();
     GestorSQLite(@Nullable/*Añadido "Nullable"*/ Context context
             /* Borrado ", String name, SQLiteDatabase.CursorFactory factory, int version" (no está en el vídeo y daba error)*/) {
         super(context, DATABASE_NAME, null /*"null" sustituye a "factory"*/, DATABASE_VERSION);
         this.context = context;
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -133,15 +133,19 @@ public class GestorSQLite extends SQLiteOpenHelper {
     }
 
     Cursor readAllData2() {
-        String query = "SELECT * FROM " + TABLE_NAME2 /*+ "WHERE id_fk = '" + _id + "';"*/;
-        SQLiteDatabase db = this.getReadableDatabase();
 
+        String query = "SELECT * FROM "  + TABLE_NAME2 + " WHERE _id_fk = '" + id + "';";
+        SQLiteDatabase db = this.getReadableDatabase();
+        System.out.println("miaumiau");
+        System.out.println(id);
         Cursor cursor = null;
         if (db != null) {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
     }
+
+
 
     void updateData(String row_id, String nombre, String comienzo,
                     String finalizacion, String unidades, String factor, String valor) {
@@ -213,4 +217,8 @@ public class GestorSQLite extends SQLiteOpenHelper {
             db.execSQL("PRAGMA foreign_keys=ON;");
         }
     }
+
+
+
 }
+
