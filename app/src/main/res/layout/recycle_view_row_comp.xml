@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="nombre"
+                android:text="id_fk"
                 app:layout_constraintStart_toEndOf="@+id/componente_id_txt"
                 app:layout_constraintTop_toTopOf="parent" />
 
