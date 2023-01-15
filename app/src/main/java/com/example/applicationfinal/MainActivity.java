@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     GestorSQLite GSQL;
     ArrayList<String> proyecto_id, nombre_input, comienzo_input,
-            fin_input, unidades_input, factor_input, valor_input;
+            fin_input, unidades_input, factor_input, valor_input, comienzo_input_date;
     CustomAdapter customAdapter;
 
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         storeDataInArrays();
 
         customAdapter = new CustomAdapter(MainActivity.this, this, proyecto_id, nombre_input,
-                comienzo_input, fin_input, unidades_input, factor_input, valor_input);
+                comienzo_input, fin_input, unidades_input, factor_input, valor_input, comienzo_input_date);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/

@@ -1,5 +1,7 @@
 package com.example.applicationfinal;
 
+import static java.lang.Long.parseLong;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHolder2> {
 
@@ -56,12 +60,57 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
+
+        long[] Arr = new long[comienzo_comp_input.size()];
+        ArrayList<String> fecha_comienzo= new ArrayList<String>();
+        for (int i = 0; i < comienzo_comp_input.size(); i++) {
+            Arr[i] = parseLong(String.valueOf(comienzo_comp_input.get(i)));
+            System.out.println(comienzo_comp_input);
+            System.out.println(Arr[i] + " JAMOOOOOOOOOOOEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            Date[] date = new Date[comienzo_comp_input.size()];
+            date[i]= new Date (Arr[i] * 1000);
+            // the format of your date
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+            String[] comienzo_input_date = new String[comienzo_comp_input.size()];
+            // give a timezone reference for formatting (see comment at the bottom)
+
+            comienzo_input_date[i] =sdf.format(date[i]);
+            fecha_comienzo.add(i, String.valueOf(comienzo_input_date[i]));
+
+            System.out.println(fecha_comienzo);
+
+        }
+        holder.Fecha_Comienzo_Componente_txt.setText(String.valueOf(fecha_comienzo.get(position)));
+
+
+        long[] Arr2 = new long[fin_comp_input.size()];
+        ArrayList<String> fecha_final= new ArrayList<String>();
+        for (int i = 0; i < fin_comp_input.size(); i++) {
+            Arr2[i] = parseLong(String.valueOf(fin_comp_input.get(i)));
+            System.out.println(fin_comp_input);
+            System.out.println(Arr2[i] + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            Date[] date2 = new Date[fin_comp_input.size()];
+            date2[i]= new Date (Arr2[i] * 1000);
+            // the format of your date
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+            // give a timezone reference for formatting (see comment at the bottom)
+
+            String[] final_input_date = new String[fin_comp_input.size()];
+            final_input_date[i] =sdf.format(date2[i]);
+            fecha_final.add(i, String.valueOf(final_input_date[i]));
+            System.out.println(fecha_final);
+
+        }
+
+        holder.Fecha_Fin_Componente_txt.setText(String.valueOf(fecha_final.get(position)));
+
+
         holder.componente_id_txt.setText(String.valueOf(componente_id.get(position)));
         holder.Proyecto_id_fk_txt.setText(String.valueOf(proyecto_id_fk_input.get(position)));
         holder.tipo_txt.setText(String.valueOf(tipo_input.get(position)));
         holder.Numero_txt.setText(String.valueOf(numero_input.get(position)));
-        holder.Fecha_Comienzo_Componente_txt.setText(String.valueOf(comienzo_comp_input.get(position)));
-        holder.Fecha_Fin_Componente_txt.setText(String.valueOf(fin_comp_input.get(position)));
+
         holder.Fecha_Comienzo_UE_txt.setText(String.valueOf(comienzo_compue_input.get(position)));
         holder.Fecha_Fin_UE_txt.setText(String.valueOf(fin_compue_input.get(position)));
         holder.Precio_txt.setText(String.valueOf(precio_input.get(position)));
@@ -75,8 +124,8 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
                 intent.putExtra("id_fk", String.valueOf(proyecto_id_fk_input.get(holder.getAdapterPosition())));
                 intent.putExtra("tipo", String.valueOf(tipo_input.get(holder.getAdapterPosition())));
                 intent.putExtra("numero", String.valueOf(numero_input.get(holder.getAdapterPosition())));
-                intent.putExtra("comienzo_componente", String.valueOf(comienzo_comp_input.get(holder.getAdapterPosition())));
-                intent.putExtra("fin_componente", String.valueOf(fin_comp_input.get(holder.getAdapterPosition())));
+                intent.putExtra("comienzo_componente", String.valueOf(fecha_comienzo.get(holder.getAdapterPosition())));
+                intent.putExtra("fin_componente", String.valueOf(fecha_final.get(holder.getAdapterPosition())));
                 intent.putExtra("comienzoue_componente", String.valueOf(comienzo_compue_input.get(holder.getAdapterPosition())));
                 intent.putExtra("finue_componente", String.valueOf(fin_compue_input.get(holder.getAdapterPosition())));
                 intent.putExtra("precio", String.valueOf(precio_input.get(holder.getAdapterPosition())));

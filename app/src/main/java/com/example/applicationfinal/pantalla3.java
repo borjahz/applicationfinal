@@ -34,6 +34,8 @@ public class pantalla3 extends AppCompatActivity {
     ArrayList<String> numero_input;
     ArrayList<String> comienzo_comp_input;
     ArrayList<String> fin_comp_input;
+    ArrayList<String> fecha_comienzo;
+    ArrayList<String> fecha_final;
     ArrayList<String> comienzo_compue_input;
     ArrayList<String> fin_compue_input;
     ArrayList<String> precio_input;
@@ -89,6 +91,8 @@ public class pantalla3 extends AppCompatActivity {
         tipo_input = new ArrayList<>();
         numero_input = new ArrayList<>();
         comienzo_comp_input = new ArrayList<>();
+        fecha_comienzo= new ArrayList<>();
+        fecha_final=new ArrayList<>();
         fin_comp_input = new ArrayList<>();
         comienzo_compue_input = new ArrayList<>();
         fin_compue_input = new ArrayList<>();
@@ -100,7 +104,7 @@ public class pantalla3 extends AppCompatActivity {
 
 
         CustomAdapter2 = new CustomAdapter2(pantalla3.this, this, componente_id, proyecto_id_fk_input, tipo_input, numero_input,
-                comienzo_comp_input, fin_comp_input, comienzo_compue_input, fin_compue_input, precio_input);
+                fecha_comienzo, fecha_final, comienzo_compue_input, fin_compue_input, precio_input);
         recyclerView2.setAdapter(CustomAdapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(pantalla3.this));
         /* Creacion y funcionalidad del array de datos de abajo FIN*/
@@ -114,8 +118,8 @@ public class pantalla3 extends AppCompatActivity {
                             proyecto_id_fk_input.clear();
                             tipo_input.clear();
                             numero_input.clear();
-                            comienzo_comp_input.clear();
-                            fin_comp_input.clear();
+                            fecha_comienzo.clear();
+                            fecha_final.clear();
                             comienzo_compue_input.clear();
                             fin_compue_input.clear();
                             precio_input.clear();
@@ -186,8 +190,8 @@ public class pantalla3 extends AppCompatActivity {
                 proyecto_id_fk_input.add(cursor.getString(1));
                 tipo_input.add(cursor.getString(2));
                 numero_input.add(cursor.getString(3));
-                comienzo_comp_input.add(cursor.getString(4));
-                fin_comp_input.add(cursor.getString(5));
+                fecha_comienzo.add(cursor.getString(4));
+                fecha_final.add(cursor.getString(5));
                 comienzo_compue_input.add(cursor.getString(6));
                 fin_compue_input.add(cursor.getString(7));
                 precio_input.add(cursor.getString(8));

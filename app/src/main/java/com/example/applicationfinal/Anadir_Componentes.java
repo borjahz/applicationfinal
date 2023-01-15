@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class Anadir_Componentes extends AppCompatActivity {
@@ -25,6 +29,8 @@ public class Anadir_Componentes extends AppCompatActivity {
 
     DatePickerDialog dpd1;
     DatePickerDialog dpd2;
+    long epoch;
+    long epoch2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +58,25 @@ public class Anadir_Componentes extends AppCompatActivity {
                 dpd1 = new DatePickerDialog(Anadir_Componentes.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                        int mMonth2;
+                        String cucu;
                         comienzo_comp_input.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
+                        String s = "00:00:00";
+                        mMonth2=mMonth+1;
+                        cucu=(mMonth2 + "/" + mDay + "/" + mYear + " "  + s );
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            LocalDate comienzo_local = LocalDate.of(mYear, mMonth, mDay);
+
+                            System.out.println(comienzo_local);
+
+                            try {
+                                epoch = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(cucu).getTime() / 1000;
+                            } catch (ParseException e) {
+                                throw new RuntimeException(e);
+                            }
+                            System.out.println(epoch);
+
+                        }
                     }
                 }, day, month, year);
                 dpd1.show();
@@ -72,8 +96,26 @@ public class Anadir_Componentes extends AppCompatActivity {
                 int year = c2.get(Calendar.YEAR);
                 dpd2 = new DatePickerDialog(Anadir_Componentes.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        fin_compue_input.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
+                    public void onDateSet(DatePicker datePicker, int mYear2, int mMonth2, int mDay2) {
+                        fin_comp_input.setText(mDay2 + "/" + (mMonth2 + 1) + "/" + mYear2);
+                        int mMonth3;
+                        String cucu;
+                        String s = "00:00:00";
+                        mMonth3=mMonth2+1;
+                        cucu=(mMonth3 + "/" + mDay2 + "/" + mYear2 + " "  + s );
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            LocalDate comienzo_local2 = LocalDate.of(mYear2, mMonth2, mDay2);
+
+                            System.out.println(comienzo_local2);
+
+                            try {
+                                epoch2 = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(cucu).getTime() / 1000;
+                            } catch (ParseException e) {
+                                throw new RuntimeException(e);
+                            }
+                            System.out.println(epoch2);
+
+                        }
                     }
                 }, day, month, year);
                 dpd2.show();
@@ -89,8 +131,8 @@ public class Anadir_Componentes extends AppCompatActivity {
                 GSQL.anadirComponente (proyecto_id_fk_input.getText().toString().trim(),
                                         tipo_input.getText().toString().trim(),
                         Integer.valueOf(numero_input.getText().toString().trim()),
-                        Integer.valueOf(comienzo_comp_input.getText().toString().trim()),
-                        Integer.valueOf(fin_comp_input.getText().toString().trim()),
+                        (int)epoch,
+                        (int) epoch2,
                         Integer.valueOf(comienzo_compue_input.getText().toString().trim()),
                         Integer.valueOf(fin_compue_input.getText().toString().trim()),
                         Integer.valueOf(precio_input.getText().toString().trim())

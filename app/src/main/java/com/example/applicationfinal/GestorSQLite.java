@@ -101,8 +101,8 @@ public class GestorSQLite extends SQLiteOpenHelper {
                           int comienzo_componente_ue, int fin_componente_ue, int precio) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        System.out.println("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-        System.out.println(tipo_componente + id_fk + String.valueOf(numero) + String.valueOf(comienzo_componente) + String.valueOf(fin_componente)+ String.valueOf(comienzo_componente_ue) + String.valueOf(fin_componente_ue) + String.valueOf(precio));
+        System.out.println("WUUUUUUUUUUUUUUUUUUUUUUU");
+        System.out.println(tipo_componente+ "/" + id_fk + "/" +String.valueOf(numero) + "/" +String.valueOf(comienzo_componente) +"/" + String.valueOf(fin_componente)+ "/" +String.valueOf(comienzo_componente_ue) +"/" +String.valueOf(fin_componente_ue) + "/" +String.valueOf(precio));
 
         cv.put(COLUMN_IDFK, id_fk);
         cv.put(COLUMN_TIPO, tipo_componente);
