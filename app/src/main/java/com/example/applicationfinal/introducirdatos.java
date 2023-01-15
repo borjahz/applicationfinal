@@ -174,104 +174,104 @@ public class introducirdatos extends AppCompatActivity  {
                 int year = c2.get(Calendar.YEAR);
                 dpd2 = new DatePickerDialog(introducirdatos.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        fin_input.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
-                        if (mYear%4 == 1 && mMonth == 1) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 2) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400 + 31536000 + 5097600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 3) {
-                            fin_input_unix = (((mYear-1- 1970) / 4) * 126230400+ 31536000  + 7776000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 4) {
-                            fin_input_unix = (((mYear-1- 1970) / 4) * 126230400+ 31536000  + 10368000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 5) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400+ 31536000  + 13046400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 6) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400+ 31536000  + 15638400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 7) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400+ 31536000  + 18316800 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 8) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400+ 31536000  + 20995200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 9) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400+ 31536000  + 23587200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 10) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400+ 31536000  + 26265600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 11) {
-                            fin_input_unix = (((mYear-1 - 1970) / 4) * 126230400 + 31536000 + 28857600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 1 && mMonth == 0) {
-                            fin_input_unix = (((mYear - 1 - 1970) / 4) * 126230400 + 31536000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 1) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400 + 63072000 + 2678400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 2) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400 + 63072000 + 5097600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 3) {
-                            fin_input_unix = (((mYear-2- 1970) / 4) * 126230400+ 63072000  + 7776000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 4) {
-                            fin_input_unix = (((mYear-2- 1970) / 4) * 126230400+ 63072000  + 10368000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 5) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400+ 63072000  + 13046400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 6) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400+ 63072000  + 15638400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 7) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400+ 63072000  + 18316800 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 8) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400+ 63072000  + 20995200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 9) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400+ 63072000  + 23587200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 10) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400+ 63072000  + 26265600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 11) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400 + 63072000 + 28857600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 2 && mMonth == 0) {
-                            fin_input_unix = (((mYear-2 - 1970) / 4) * 126230400 + 63072000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 1) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400 + 94608000 + 2678400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 2) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400 + 94608000 + 5097600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 3) {
-                            fin_input_unix = (((mYear-3- 1970) / 4) * 126230400+ 94608000  + 7776000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 4) {
-                            fin_input_unix = (((mYear-3- 1970) / 4) * 126230400+ 94608000  + 10368000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 5) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400+ 94608000  + 13046400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 6) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400+ 94608000  + 15638400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 7) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400+ 94608000  + 18316800 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 8) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400+ 94608000  + 20995200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 9) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400+ 94608000  + 23587200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 10) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400+ 94608000  + 26265600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 11) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400 + 94608000 + 28857600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 3 && mMonth == 0) {
-                            fin_input_unix = (((mYear-3 - 1970) / 4) * 126230400 + 94608000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 1) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 2678400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 2) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 5184000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 3) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 7862400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 4) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 10454400 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 5) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 13132800 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 6) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 15724800 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 7) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 18403200 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 8) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 21081600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 9) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 23673600 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 10) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 26352000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 11) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + 28944000 + (mDay-1) * 86400);
-                        } else if (mYear%4 == 0 && mMonth == 0) {
-                            fin_input_unix = (((mYear - 1970) / 4) * 126230400 + (mDay-1) * 86400);
+                    public void onDateSet(DatePicker datePicker, int mYear2, int mMonth2, int mDay2) {
+                        fin_input.setText(mDay2 + "/" + (mMonth2 + 1) + "/" + mYear2);
+                        if (mYear2%4 == 1 && mMonth2 == 1) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 2) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400 + 31536000 + 5097600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 3) {
+                            fin_input_unix = (((mYear2-1- 1970) / 4) * 126230400+ 31536000  + 7776000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 4) {
+                            fin_input_unix = (((mYear2-1- 1970) / 4) * 126230400+ 31536000  + 10368000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 5) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400+ 31536000  + 13046400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 6) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400+ 31536000  + 15638400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 7) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400+ 31536000  + 18316800 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 8) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400+ 31536000  + 20995200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 9) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400+ 31536000  + 23587200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 10) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400+ 31536000  + 26265600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 11) {
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400 + 31536000 + 28857600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 1 && mMonth2 == 0) {
+                            fin_input_unix = (((mYear2 - 1 - 1970) / 4) * 126230400 + 31536000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 1) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400 + 63072000 + 2678400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 2) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400 + 63072000 + 5097600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 3) {
+                            fin_input_unix = (((mYear2-2- 1970) / 4) * 126230400+ 63072000  + 7776000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 4) {
+                            fin_input_unix = (((mYear2-2- 1970) / 4) * 126230400+ 63072000  + 10368000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 5) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400+ 63072000  + 13046400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 6) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400+ 63072000  + 15638400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 7) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400+ 63072000  + 18316800 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 8) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400+ 63072000  + 20995200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 9) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400+ 63072000  + 23587200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 10) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400+ 63072000  + 26265600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 11) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400 + 63072000 + 28857600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 2 && mMonth2 == 0) {
+                            fin_input_unix = (((mYear2-2 - 1970) / 4) * 126230400 + 63072000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 1) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400 + 94608000 + 2678400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 2) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400 + 94608000 + 5097600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 3) {
+                            fin_input_unix = (((mYear2-3- 1970) / 4) * 126230400+ 94608000  + 7776000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 4) {
+                            fin_input_unix = (((mYear2-3- 1970) / 4) * 126230400+ 94608000  + 10368000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 5) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400+ 94608000  + 13046400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 6) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400+ 94608000  + 15638400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 7) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400+ 94608000  + 18316800 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 8) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400+ 94608000  + 20995200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 9) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400+ 94608000  + 23587200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 10) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400+ 94608000  + 26265600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 11) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400 + 94608000 + 28857600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 3 && mMonth2 == 0) {
+                            fin_input_unix = (((mYear2-3 - 1970) / 4) * 126230400 + 94608000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 1) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 2678400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 2) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 5184000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 3) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 7862400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 4) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 10454400 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 5) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 13132800 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 6) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 15724800 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 7) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 18403200 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 8) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 21081600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 9) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 23673600 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 10) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 26352000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 11) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 28944000 + (mDay2-1) * 86400);
+                        } else if (mYear2%4 == 0 && mMonth2 == 0) {
+                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + (mDay2-1) * 86400);
                         }
                     }
                 }, day, month, year);

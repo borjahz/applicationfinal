@@ -60,7 +60,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     /*Aquí le dices el campo donde tiene que ir cada input en el recycleview COMIENZO*/
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        /*long[] Arr = new long[comienzo_input.size()];
+        long[] Arr = new long[comienzo_input.size()];
         for (int i = 0; i < comienzo_input.size(); i++) {
             Arr[i] = Long.parseLong(String.valueOf(comienzo_input.get(i)));
             System.out.println(Arr[i] + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
@@ -76,14 +76,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         long[] Arr2 = new long[fin_input.size()];
         for (int i = 0; i < fin_input.size(); i++) {
             Arr2[i] = Long.parseLong(String.valueOf(fin_input.get(i)));
-            System.out.println(Arr[i] + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            System.out.println(Arr2[i] + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             Date date = new java.util.Date(Arr2[i] * 1000);
             // the format of your date
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yy");
             // give a timezone reference for formatting (see comment at the bottom)
             String fin_input_date = sdf.format(date);
             holder.Fecha_Fin_txt.setText(fin_input_date);
-        }*/
+        }
 
         holder.proyecto_id_txt.setText(String.valueOf(proyecto_id.get(position)));
         holder.Nombre_Proyecto_txt.setText(String.valueOf(nombre_input.get(position)));
