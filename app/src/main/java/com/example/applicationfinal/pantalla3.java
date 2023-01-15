@@ -1,5 +1,7 @@
 package com.example.applicationfinal;
 
+import static java.lang.String.valueOf;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class pantalla3 extends AppCompatActivity {
@@ -101,6 +103,8 @@ public class pantalla3 extends AppCompatActivity {
         precio = new ArrayList<>();
         Leernumeros();
         sumanumeros();
+        PrecioDiaComponentes();
+
 
 
         CustomAdapter2 = new CustomAdapter2(pantalla3.this, this, componente_id, proyecto_id_fk_input, tipo_input, numero_input,
@@ -129,6 +133,7 @@ public class pantalla3 extends AppCompatActivity {
                         storeDataInArrays2();
                         Leernumeros();
                         sumanumeros();
+                        PrecioDiaComponentes();
                         CustomAdapter2.notifyDataSetChanged();
                         swipeRefreshLayout2.setRefreshing(false);
                     }
@@ -159,7 +164,7 @@ public class pantalla3 extends AppCompatActivity {
             unidades = getIntent().getStringExtra("unidades");
             factor = getIntent().getStringExtra("factor");
             valor = getIntent().getStringExtra("valor");
-            DataHolder2.getInstance().setData(String.valueOf(id));
+            DataHolder2.getInstance().setData(valueOf(id));
 
             /*Escribir datos de la BD en los text view COMIENZO*/
             proyecto_id.setText(id);
@@ -216,12 +221,49 @@ public class pantalla3 extends AppCompatActivity {
         int[] Arr= new int[precio.size()];
     int  sum=0;
         for (int i = 0; i < precio.size(); i++) {
-            Arr[i]=Integer.parseInt(String.valueOf(precio.get(i)));
+            Arr[i]=Integer.parseInt(valueOf(precio.get(i)));
             sum = sum + Arr[i];
         }
         System.out.println("Sum of all the elements of an array: " + sum);
 
     }
+    void PrecioDiaComponentes() {
+        double sum=0;
+        double[] Arr = new double [precio.size()];
+        double [] PrecioporDia= new double [precio.size()];
+        long [] Fecha1 = new long[fecha_comienzo.size()];
+        long[] Fecha2 = new long[fecha_final.size()];
+        for (int i = 0; i < precio.size(); i++) {
+            Arr[i] = Integer.parseInt(valueOf(precio.get(i)));
+            Fecha1[i] = Long.parseLong(fecha_comienzo.get(i));
+            System.out.println("AGUAAAAAAAAAAAAAAAAAA");
+            System.out.println(Fecha1[i]);
+            Fecha2[i]= Long.parseLong(fecha_final.get(i));
+            System.out.println(Fecha2[i]);
+            long[] difference = new long[fecha_comienzo.size()];
+                    difference[i]= Fecha2[i] - Fecha1[i];
+            long[] differenceDates = new long[fecha_final.size()];
+                    differenceDates[i]=difference[i] /(24 * 60 * 60);
+            System.out.println(difference[i]);
+            System.out.println("HALOOOOOO");
+            System.out.println(differenceDates[i]);
+            String[] dayDifference = new String[precio.size()];
+                    dayDifference[i]=Long.toString(differenceDates[i]);
+                    PrecioporDia[i]= Arr[i]/Integer.parseInt(valueOf(dayDifference[i]));
+            System.out.println("AQUI ESSSSSSS");
+            System.out.println(Arr[i]);
+                    System.out.println(Integer.parseInt(valueOf(dayDifference[i])));
+            System.out.println(dayDifference[i]);
+            DecimalFormat df = new DecimalFormat("#.##");
+            System.out.println(df.format(PrecioporDia[i]));
+            sum= PrecioporDia[i]+ sum;
 
+        }
+
+        System.out.println("AGUAAAAAAAAAAAAAAAAAA");
+        System.out.println(sum);
+        System.out.println("AGAAAAAU");
+
+    }
 
 }
