@@ -4,13 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import java.sql.Timestamp;
 
+
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class introducirdatos extends AppCompatActivity  {
@@ -23,6 +31,8 @@ public class introducirdatos extends AppCompatActivity  {
 
     DatePickerDialog dpd1;
     DatePickerDialog dpd2;
+    long epoch;
+    long epoch2;
     int comienzo_input_unix;
     int fin_input_unix;
     private EditText nombre_input, comienzo_input, fin_input, unidades_input, factor_input, valor_input;
@@ -55,10 +65,29 @@ public class introducirdatos extends AppCompatActivity  {
                 dpd1 = new DatePickerDialog(introducirdatos.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                        int mMonth2;
+                        String cucu;
                         comienzo_input.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
+                        String s = "00:00:00";
+                        mMonth2=mMonth+1;
+                        cucu=(mMonth2 + "/" + mDay + "/" + mYear + " "  + s );
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            LocalDate comienzo_local = LocalDate.of(mYear, mMonth, mDay);
+
+                            System.out.println(comienzo_local);
+
+                            try {
+                                epoch = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(cucu).getTime() / 1000;
+                            } catch (ParseException e) {
+                                throw new RuntimeException(e);
+                            }
+                            System.out.println(epoch);
+
+                        }
+
 
                         if (mYear%4 == 1 && mMonth == 1) {
-                            comienzo_input_unix = (((mYear - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay-1) * 86400);
+                            comienzo_input_unix = (((mYear-1 - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay-1) * 86400);
                         } else if (mYear%4 == 1 && mMonth == 2) {
                             comienzo_input_unix = (((mYear-1 - 1970) / 4) * 126230400 + 31536000 + 5097600 + (mDay-1) * 86400);
                         } else if (mYear%4 == 1 && mMonth == 3) {
@@ -152,12 +181,14 @@ public class introducirdatos extends AppCompatActivity  {
                         } else if (mYear%4 == 0 && mMonth == 11) {
                             comienzo_input_unix = (((mYear - 1970) / 4) * 126230400 + 28944000 + (mDay-1) * 86400);
                         } else if (mYear%4 == 0 && mMonth == 0) {
-                            comienzo_input_unix = (((mYear - 1970) / 4) * 126230400 + (mDay-1) * 86400);
+                            comienzo_input_unix = (((mYear - 1970) / 4) * 126230400  + (mDay-1) * 86400);
                         }
+
                     }
                 }, day, month, year);
                 dpd1.show();
             }
+
         });
 
 
@@ -176,8 +207,27 @@ public class introducirdatos extends AppCompatActivity  {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear2, int mMonth2, int mDay2) {
                         fin_input.setText(mDay2 + "/" + (mMonth2 + 1) + "/" + mYear2);
+                        int mMonth3;
+                        String cucu;
+                        String s = "00:00:00";
+                        mMonth3=mMonth2+1;
+                        cucu=(mMonth3 + "/" + mDay2 + "/" + mYear2 + " "  + s );
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            LocalDate comienzo_local2 = LocalDate.of(mYear2, mMonth2, mDay2);
+
+                            System.out.println(comienzo_local2);
+
+                            try {
+                                epoch2 = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(cucu).getTime() / 1000;
+                            } catch (ParseException e) {
+                                throw new RuntimeException(e);
+                            }
+                            System.out.println(epoch2);
+
+                        }
+
                         if (mYear2%4 == 1 && mMonth2 == 1) {
-                            fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay2-1) * 86400);
+                            fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay2-1) * 86400);
                         } else if (mYear2%4 == 1 && mMonth2 == 2) {
                             fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400 + 31536000 + 5097600 + (mDay2-1) * 86400);
                         } else if (mYear2%4 == 1 && mMonth2 == 3) {
@@ -287,8 +337,8 @@ public class introducirdatos extends AppCompatActivity  {
             public void onClick(View view) {
                 GestorSQLite GSQL = new GestorSQLite(introducirdatos.this);
                 GSQL.anadirProyecto(nombre_input.getText().toString().trim(),
-                        (comienzo_input_unix),
-                        (fin_input_unix),
+                        (int)epoch,
+                        (int) epoch2,
                         unidades_input.getText().toString().trim(),
                         Integer.valueOf(factor_input.getText().toString().trim()),
                         Integer.valueOf(valor_input.getText().toString().trim())

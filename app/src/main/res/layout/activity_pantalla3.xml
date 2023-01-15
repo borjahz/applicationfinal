@@ -61,7 +61,7 @@
             android:id="@+id/comienzo_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="70dp"
             android:text="comienzo"
             app:layout_constraintEnd_toStartOf="@+id/valor_display"
             app:layout_constraintTop_toTopOf="@+id/unidades_display2" />

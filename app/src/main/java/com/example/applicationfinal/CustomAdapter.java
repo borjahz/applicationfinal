@@ -63,13 +63,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         long[] Arr = new long[comienzo_input.size()];
         for (int i = 0; i < comienzo_input.size(); i++) {
             Arr[i] = Long.parseLong(String.valueOf(comienzo_input.get(i)));
-            System.out.println(Arr[i] + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            System.out.println(comienzo_input);
+            System.out.println(Arr[i] + " JAMOOOOOOOOOOOEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             Date date = new java.util.Date(Arr[i] * 1000);
             // the format of your date
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yy");
             // give a timezone reference for formatting (see comment at the bottom)
             String comienzo_input_date = sdf.format(date);
             holder.Fecha_Comienzo_txt.setText(comienzo_input_date);
+            System.out.println(comienzo_input_date);
 
 
         }
@@ -83,6 +85,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             // give a timezone reference for formatting (see comment at the bottom)
             String fin_input_date = sdf.format(date);
             holder.Fecha_Fin_txt.setText(fin_input_date);
+            System.out.println(fin_input_date);
         }
 
         holder.proyecto_id_txt.setText(String.valueOf(proyecto_id.get(position)));
@@ -124,6 +127,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
                 intent.putExtra("valor", String.valueOf(valor_input.get(holder.getAdapterPosition())));
                 context.startActivity(intent);
+                unixToDate();
+                System.out.println("PERRRRROOOOOOOO");
+
             }
         });
         /*Convertir Recycleview en botón FIN*/
@@ -167,6 +173,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         // give a timezone reference for formatting (see comment at the bottom)
         sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-0"));
         String formattedDate = sdf.format(date);
+        System.out.println("PERRRRROOOOOOOO");
         System.out.println(formattedDate);
     }
 
