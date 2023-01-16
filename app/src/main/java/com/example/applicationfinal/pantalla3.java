@@ -1,5 +1,6 @@
 package com.example.applicationfinal;
 
+import static com.example.applicationfinal.DataHolder2.getInstance;
 import static java.lang.String.valueOf;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +33,7 @@ public class pantalla3 extends AppCompatActivity {
     private FloatingActionButton add_button2;
     private RecyclerView recyclerView2;
     private TextView proyecto_id, nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2,
-            PrecioDiaComponente_text_display, PrecioDiaComponente_display, PrecioDiaProyecto_text_display, PrecioDiaProyecto_display;
+            PrecioDiaComponente_text_display, PrecioDiaComponente_display, PrecioDiaProyecto_text_display, PrecioDiaProyecto_display,unidades_txt4,unidades_txt3;
     private SwipeRefreshLayout swipeRefreshLayout2;
 
 
@@ -73,6 +75,8 @@ public class pantalla3 extends AppCompatActivity {
         PrecioDiaComponente_display=findViewById(R.id.PrecioDiaComponente_display);
         PrecioDiaProyecto_display=findViewById(R.id.PrecioDiaProyecto_display);
         PrecioDiaProyecto_text_display=findViewById(R.id.PrecioDiaProyecto_text_display);
+
+
 
 
         System.out.println("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
@@ -179,6 +183,7 @@ public class pantalla3 extends AppCompatActivity {
             factor = getIntent().getStringExtra("factor");
             valor = getIntent().getStringExtra("valor");
             DataHolder2.getInstance().setData(valueOf(id));
+            DateHolder3.getInstance().setData(unidades);
 
             /*Escribir datos de la BD en los text view COMIENZO*/
             proyecto_id.setText(id);
@@ -216,7 +221,6 @@ public class pantalla3 extends AppCompatActivity {
                 comienzo_compue_input.add(cursor.getString(6));
                 fin_compue_input.add(cursor.getString(7));
                 precio_input.add(cursor.getString(8));
-
             }
         }
         /*Método extraer y exponer datos FIN*/

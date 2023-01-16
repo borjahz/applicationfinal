@@ -119,9 +119,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         holder.proyecto_id_txt.setText(String.valueOf(proyecto_id.get(position)));
         holder.Nombre_Proyecto_txt.setText(String.valueOf(nombre_input.get(position)));
-
-
-
         holder.Unidades_txt.setText(String.valueOf(unidades_input.get(position)));
         holder.Factor_txt.setText(String.valueOf(factor_input.get(position)));
         holder.Valor_txt.setText(String.valueOf(valor_input.get(position)));
@@ -192,6 +189,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             Valor_txt = itemvView.findViewById(R.id.Valor_txt);
             Unidades_txt2 = itemvView.findViewById(R.id.unidades_txt2);
             mainLayout = itemvView.findViewById(R.id.mainLayout);
+
         }
         /*Identificar cada uno de los elementos del recycle view FIN*/
 

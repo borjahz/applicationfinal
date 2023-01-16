@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,7 +23,8 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
     private Context context;
     private Activity activity;
     private ArrayList componente_id, proyecto_id_fk_input, tipo_input, numero_input, comienzo_comp_input, fin_comp_input,
-            comienzo_compue_input, fin_compue_input, precio_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
+            comienzo_compue_input, fin_compue_input, precio_input,unidades_input; /*Añadir aquí los inputs necesarios para el recycle view row*/
+    String unidades= DateHolder3.getInstance().getData();
 
     CustomAdapter2(Activity activity,
                    Context context,
@@ -48,7 +48,10 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         this.comienzo_compue_input = comienzo_compue_input;
         this.fin_compue_input = fin_compue_input;
         this.precio_input = precio_input;
+
     }
+
+
 
     @NonNull
     @Override
@@ -110,11 +113,13 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         holder.Proyecto_id_fk_txt.setText(String.valueOf(proyecto_id_fk_input.get(position)));
         holder.tipo_txt.setText(String.valueOf(tipo_input.get(position)));
         holder.Numero_txt.setText(String.valueOf(numero_input.get(position)));
-
         holder.Fecha_Comienzo_UE_txt.setText(String.valueOf(comienzo_compue_input.get(position)));
         holder.Fecha_Fin_UE_txt.setText(String.valueOf(fin_compue_input.get(position)));
         holder.Precio_txt.setText(String.valueOf(precio_input.get(position)));
-
+        System.out.println("AQUIIIEESSSSSSSSS");
+        System.out.println(unidades);
+        holder.unidades_txt3.setText(String.valueOf(unidades));
+        holder.unidades_txt4.setText(unidades);
         /*Convertir Recycleview en botón COMIENZO*/
         holder.secondaryLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -144,7 +149,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
     public class MyViewHolder2 extends RecyclerView.ViewHolder {
 
         TextView componente_id_txt, Proyecto_id_fk_txt, tipo_txt, Numero_txt, Fecha_Comienzo_Componente_txt, Fecha_Fin_Componente_txt,
-                Fecha_Comienzo_UE_txt, Fecha_Fin_UE_txt, Precio_txt; /*Mismos nombres que en recycle_view_row_comp*/
+                Fecha_Comienzo_UE_txt, Fecha_Fin_UE_txt, Precio_txt,unidades_txt3,unidades_txt4,unidades_txt2,unidades_txt1; /*Mismos nombres que en recycle_view_row_comp*/
         ConstraintLayout secondaryLayout;
 
         /*Identificar cada uno de los elementos del recycle view COMIENZO*/
@@ -159,6 +164,8 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
             Fecha_Comienzo_UE_txt = itemvView.findViewById(R.id.Comienzo_UE_txt);
             Fecha_Fin_UE_txt = itemvView.findViewById(R.id.Fin_UE_txt);
             Precio_txt = itemvView.findViewById(R.id.Precio_txt);
+            unidades_txt3= itemvView.findViewById(R.id.unidades_txt3);
+            unidades_txt4= itemvView.findViewById(R.id.unidades_txt4);
             secondaryLayout = itemvView.findViewById(R.id.secondaryLayout);
         }
         /*Identificar cada uno de los elementos del recycle view FIN*/

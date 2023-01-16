@@ -104,9 +104,9 @@ public class Anadir_Componentes extends AppCompatActivity {
                         mMonth3=mMonth2+1;
                         cucu=(mMonth3 + "/" + mDay2 + "/" + mYear2 + " "  + s );
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            LocalDate comienzo_local2 = LocalDate.of(mYear2, mMonth2, mDay2);
+                            LocalDate fin_local2 = LocalDate.of(mYear2, mMonth2, mDay2);
 
-                            System.out.println(comienzo_local2);
+                            System.out.println(fin_local2);
 
                             try {
                                 epoch2 = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(cucu).getTime() / 1000;
