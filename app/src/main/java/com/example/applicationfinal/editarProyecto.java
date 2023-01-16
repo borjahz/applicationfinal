@@ -166,7 +166,7 @@ public class editarProyecto extends AppCompatActivity {
                     unidades = unidades_input.getText().toString().trim();
                     factor = factor_input.getText().toString().trim();
                     valor = valor_input.getText().toString().trim();
-                  /*  String[] values = comienzo.split("-");
+                    /*String[] values = comienzo.split("-");
                     int day = Integer.parseInt(values[0]);
                     int month = Integer.parseInt(values[1]);
                     int year = Integer.parseInt(values[2]);
@@ -174,6 +174,7 @@ public class editarProyecto extends AppCompatActivity {
                     String fechas;
                     fechas=(month + "/" + day + "/" + year + " "  + s );
                     comienzo_input.setText(day + "/" + month + "/" + year);
+                    /*
                     try {
                         epoch = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(fechas).getTime() / 1000;
                     } catch (ParseException e) {
@@ -238,8 +239,7 @@ public class editarProyecto extends AppCompatActivity {
 
                 /*Escribir datos de la BD en los edit text COMIENZO*/
                 nombre_input.setText(nombre);
-                comienzo_input.setText(comienzo);
-                fin_input.setText(fin);
+
                 unidades_input.setText(unidades);
                 factor_input.setText(factor);
                 valor_input.setText(valor);
