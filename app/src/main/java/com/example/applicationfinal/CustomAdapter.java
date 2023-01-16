@@ -136,8 +136,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 Intent intent = new Intent(context, editarProyecto.class);
                 intent.putExtra("id", String.valueOf(proyecto_id.get(holder.getAdapterPosition())));
                 intent.putExtra("nombre", String.valueOf(nombre_input.get(holder.getAdapterPosition())));
-                intent.putExtra("comienzo", String.valueOf(fecha_comienzo.get(holder.getAdapterPosition())));
-                intent.putExtra("fin", String.valueOf(fecha_final.get(holder.getAdapterPosition())));
+                intent.putExtra("comienzo", String.valueOf(comienzo_input.get(holder.getAdapterPosition())));
+                intent.putExtra("fin", String.valueOf(fin_input.get(holder.getAdapterPosition())));
                 intent.putExtra("unidades", String.valueOf(unidades_input.get(holder.getAdapterPosition())));
                 intent.putExtra("factor", String.valueOf(factor_input.get(holder.getAdapterPosition())));
                 intent.putExtra("valor", String.valueOf(valor_input.get(holder.getAdapterPosition())));

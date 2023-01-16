@@ -59,8 +59,8 @@ public class editarProyecto extends AppCompatActivity {
                 /*Sobreescribir datos existentes COMIENZO*/
                 GestorSQLite myDB = new GestorSQLite(editarProyecto.this);
                 nombre = nombre_input.getText().toString().trim();
-                comienzo = comienzo_input.getText().toString().trim();
-                fin = fin_input.getText().toString().trim();
+                comienzo = String.valueOf(comienzo_input);
+                fin = String.valueOf(fin_input);
                 unidades = unidades_input.getText().toString().trim();
                 factor = factor_input.getText().toString().trim();
                 valor = valor_input.getText().toString().trim();

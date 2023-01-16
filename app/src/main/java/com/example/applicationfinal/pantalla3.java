@@ -110,6 +110,7 @@ public class pantalla3 extends AppCompatActivity {
         Leernumeros();
         sumanumeros();
         PrecioDiaComponentes();
+        PrecioUnidadExtra();
 
 
 
@@ -140,6 +141,7 @@ public class pantalla3 extends AppCompatActivity {
                         Leernumeros();
                         sumanumeros();
                         PrecioDiaComponentes();
+                        PrecioUnidadExtra();
                         CustomAdapter2.notifyDataSetChanged();
                         swipeRefreshLayout2.setRefreshing(false);
                     }
@@ -276,6 +278,28 @@ public class pantalla3 extends AppCompatActivity {
         System.out.println(sum);
         System.out.println("AGAAAAAU");
 
+    }
+    void PrecioUnidadExtra() {
+        double sum = 0;
+        String sum2 = null;
+        double factorP = Double.parseDouble(factor);
+        double Uniextra = Double.parseDouble(valor);
+        double Coste_nuevo=0;
+        double[] Arr = new double[precio.size()];
+        String Coste_Unidad_Extra = null;
+        for (int i = 0; i < precio.size(); i++) {
+            Arr[i] = Integer.parseInt(valueOf(precio.get(i)));
+            sum = Arr[i] + sum;
+            DecimalFormat df = new DecimalFormat("#.##");
+            sum2=df.format(sum);
+            Coste_nuevo=sum*factorP/Uniextra;
+            Coste_Unidad_Extra = String.valueOf(sum  * factorP / Uniextra);
+
+        }
+        System.out.println("AAQUI ES TMB");
+        System.out.println(Coste_Unidad_Extra);
+        System.out.println(Coste_nuevo);
+        System.out.println(sum);
     }
 
 }
