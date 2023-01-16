@@ -222,6 +222,12 @@ public class GestorSQLite extends SQLiteOpenHelper {
             Toast.makeText(context, "Componente borrado correctamente", Toast.LENGTH_SHORT).show();
         }
     }
+    void deleteComponentsFromOneProject(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME2 + " WHERE _id_fk = '" + id + "';");
+
+    }
+
     @Override
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);

@@ -26,6 +26,7 @@
     <string name="editarComponente">Editar componente</string>
     <string name="borrarProyecto">Borrar proyecto</string>
     <string name="borrarComponente">Borrar componente</string>
+    <string name="borrarComponentes">Borrar todos los componentes del proyecto</string>
     <string name="tipoNuevoComponente">Tipo del nuevo componente</string>
     <string name="numeroNuevoComponente">Número del nuevo componente</string>
     <string name="precio">Precio del nuevo componente</string>

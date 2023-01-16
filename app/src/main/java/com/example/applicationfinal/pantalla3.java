@@ -2,6 +2,7 @@ package com.example.applicationfinal;
 
 import static java.lang.String.valueOf;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -214,6 +218,23 @@ public class pantalla3 extends AppCompatActivity {
             }
         }
         /*Método extraer y exponer datos FIN*/
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_proyecto, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.deleteAllComponentsFromProject){
+            Toast.makeText(this, "Todos los componentes del proyecto borrados", Toast.LENGTH_SHORT).show();
+            GestorSQLite GSQL = new GestorSQLite(this);
+            GSQL.deleteComponentsFromOneProject();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     void Leernumeros() {
