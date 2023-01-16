@@ -63,7 +63,7 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="16dp"
                 android:text="tipo"
-                android:textSize="18dp"
+                android:textSize="22dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -72,12 +72,18 @@
                 android:id="@+id/Numero_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="1dp"
                 android:layout_marginBottom="4dp"
                 android:text="Número"
+                android:textSize="22dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tipo_txt"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="-2dp" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/Comienzo_UE_txt"
@@ -121,7 +127,7 @@
                 android:id="@+id/Precio_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="38dp"
                 android:layout_marginTop="50dp"
                 android:text="precio"
                 app:layout_constraintStart_toEndOf="@+id/Numero_txt"
