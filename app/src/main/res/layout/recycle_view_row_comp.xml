@@ -87,10 +87,8 @@
                 android:id="@+id/Fecha_Fin_Componente_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="49dp"
                 android:text="Fin"
                 app:layout_constraintEnd_toEndOf="@+id/Fecha_Comienzo_Componente_txt"
-                app:layout_constraintStart_toEndOf="@+id/Precio_txt"
                 app:layout_constraintTop_toBottomOf="@+id/Fecha_Comienzo_Componente_txt" />
 
             <TextView
