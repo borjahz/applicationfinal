@@ -33,7 +33,7 @@ public class pantalla3 extends AppCompatActivity {
     private FloatingActionButton add_button2;
     private RecyclerView recyclerView2;
     private TextView proyecto_id, nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2,
-            PrecioDiaComponente_text_display, PrecioDiaComponente_display, PrecioDiaProyecto_text_display, PrecioDiaProyecto_display,unidades_txt4,unidades_txt3;
+            PrecioDiaComponente_text_display, PrecioDiaComponente_display, PrecioDiaProyecto_text_display, PrecioDiaProyecto_display,unidades_txt4,unidades_txt3,precioUnidadExtra_text_display,unidadespreciouniextra_display2;
     private SwipeRefreshLayout swipeRefreshLayout2;
 
 
@@ -75,7 +75,8 @@ public class pantalla3 extends AppCompatActivity {
         PrecioDiaComponente_display=findViewById(R.id.PrecioDiaComponente_display);
         PrecioDiaProyecto_display=findViewById(R.id.PrecioDiaProyecto_display);
         PrecioDiaProyecto_text_display=findViewById(R.id.PrecioDiaProyecto_text_display);
-
+        precioUnidadExtra_text_display=findViewById(R.id.precioUnidadExtra_text_display);
+        unidadespreciouniextra_display2=findViewById(R.id.unidadespreciouniextra_display2);
 
 
 
@@ -340,13 +341,17 @@ public class pantalla3 extends AppCompatActivity {
             DecimalFormat df = new DecimalFormat("#.##");
             sum2=df.format(sum);
             Coste_nuevo=sum*factorP/Uniextra;
-            Coste_Unidad_Extra = String.valueOf(sum  * factorP / Uniextra);
+            Coste_Unidad_Extra = String.valueOf(df.format(sum  * factorP / Uniextra));
 
         }
         System.out.println("AAQUI ES TMB");
         System.out.println(Coste_Unidad_Extra);
         System.out.println(Coste_nuevo);
         System.out.println(sum);
+        precioUnidadExtra_text_display.setText(String.valueOf(Coste_Unidad_Extra));
+        unidadespreciouniextra_display2.setText(String.valueOf(unidades) +"/día");
+
     }
+
 
 }

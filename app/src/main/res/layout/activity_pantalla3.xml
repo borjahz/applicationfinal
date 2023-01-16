@@ -37,6 +37,50 @@
         app:layout_constraintTop_toTopOf="@+id/swipeRefresh2">
 
         <TextView
+            android:id="@+id/unidadespreciouniextra_display2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="465dp"
+            android:layout_marginBottom="60dp"
+            android:text="€/día"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/precioUnidadExtra_text_display"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/precioUnidadExtra_text_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="230dp"
+            android:layout_marginTop="465dp"
+            android:layout_marginBottom="60dp"
+            android:text="Precio Unidadex"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/precioUnidadExtra_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="410dp"
+            android:layout_marginBottom="60dp"
+            android:text="Precio del proyecto por día:"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/Datos_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +118,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="320dp"
             android:layout_marginBottom="20dp"
-            android:text="Precio del componete por día:"
+            android:text="Precio del compotente por día:"
             android:textSize="15sp"
             android:textStyle="bold"
             android:visibility="visible"
@@ -88,9 +132,9 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="10dp"
-            android:layout_marginTop="410dp"
+            android:layout_marginTop="465dp"
             android:layout_marginBottom="60dp"
-            android:text="Precio del proyecto por día:"
+            android:text="Precio por unidad extra:"
             android:textSize="15sp"
             android:textStyle="bold"
             android:visibility="visible"
