@@ -5,11 +5,13 @@ import static java.lang.String.valueOf;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -230,13 +232,33 @@ public class pantalla3 extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.deleteAllComponentsFromProject){
-            Toast.makeText(this, "Todos los componentes del proyecto borrados", Toast.LENGTH_SHORT).show();
-            GestorSQLite GSQL = new GestorSQLite(this);
-            GSQL.deleteComponentsFromOneProject();
-        }
+            /*Toast.makeText(this, "Todos los componentes del proyecto borrados", Toast.LENGTH_SHORT).show();*/
+        confirmDialogAllComps();}
         return super.onOptionsItemSelected(item);
     }
+    /*Aviso borrar COMIENZO*/
+    void confirmDialogAllComps() {
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+        builder2.setTitle("¿Borrar todos los componentes?");
+        builder2.setMessage("¿Seguro que quieres borrar todos los componentes?");
+        builder2.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterfaceComp, int i) {
+                GestorSQLite GSQL = new GestorSQLite(pantalla3.this);
+                GSQL.deleteComponentsFromOneProject();
+                finish();
 
+            }
+        });
+        builder2.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterfaceComp, int i) {
+
+            }
+        });
+        builder2.create().show();
+    }
+    /*Aviso borrar FIN*/
     void Leernumeros() {
         Cursor cursor = GSQL.readAllData3();
         if (cursor.getCount() == 0) {
