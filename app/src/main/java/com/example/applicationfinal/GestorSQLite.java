@@ -160,8 +160,7 @@ public class GestorSQLite extends SQLiteOpenHelper {
 
 
 
-    void updateData(String row_id, String nombre, String comienzo,
-                    String finalizacion, String unidades, String factor, String valor) {
+    void updateData(String row_id, String nombre, int comienzo, int finalizacion, String unidades, String factor, String valor) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_NOMBRE, nombre);

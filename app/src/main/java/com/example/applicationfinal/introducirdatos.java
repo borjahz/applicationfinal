@@ -72,7 +72,7 @@ public class introducirdatos extends AppCompatActivity  {
                         mMonth2=mMonth+1;
                         cucu=(mMonth2 + "/" + mDay + "/" + mYear + " "  + s );
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            LocalDate comienzo_local = LocalDate.of(mYear, mMonth, mDay);
+                            LocalDate comienzo_local = LocalDate.of(mYear, mMonth2, mDay);
 
                             System.out.println(comienzo_local);
 
@@ -85,7 +85,7 @@ public class introducirdatos extends AppCompatActivity  {
 
                         }
 
-
+/*
                         if (mYear%4 == 1 && mMonth == 1) {
                             comienzo_input_unix = (((mYear-1 - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay-1) * 86400);
                         } else if (mYear%4 == 1 && mMonth == 2) {
@@ -183,6 +183,8 @@ public class introducirdatos extends AppCompatActivity  {
                         } else if (mYear%4 == 0 && mMonth == 0) {
                             comienzo_input_unix = (((mYear - 1970) / 4) * 126230400  + (mDay-1) * 86400);
                         }
+                        */
+
 
                     }
                 }, day, month, year);
@@ -225,7 +227,7 @@ public class introducirdatos extends AppCompatActivity  {
                             System.out.println(epoch2);
 
                         }
-
+/*
                         if (mYear2%4 == 1 && mMonth2 == 1) {
                             fin_input_unix = (((mYear2-1 - 1970) / 4) * 126230400 + 31536000 + 2678400 + (mDay2-1) * 86400);
                         } else if (mYear2%4 == 1 && mMonth2 == 2) {
@@ -322,7 +324,7 @@ public class introducirdatos extends AppCompatActivity  {
                             fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + 28944000 + (mDay2-1) * 86400);
                         } else if (mYear2%4 == 0 && mMonth2 == 0) {
                             fin_input_unix = (((mYear2 - 1970) / 4) * 126230400 + (mDay2-1) * 86400);
-                        }
+                        }*/
                     }
                 }, day, month, year);
                 dpd2.show();
