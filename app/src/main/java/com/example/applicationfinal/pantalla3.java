@@ -24,7 +24,8 @@ import java.util.ArrayList;
 public class pantalla3 extends AppCompatActivity {
     private FloatingActionButton add_button2;
     private RecyclerView recyclerView2;
-    private TextView proyecto_id, nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2;
+    private TextView proyecto_id, nombre_display, comienzo_display, fin_display, unidades_display, factor_display, valor_display, unidades_display2,
+            PrecioDiaComponente_text_display, PrecioDiaComponente_display, PrecioDiaProyecto_text_display, PrecioDiaProyecto_display;
     private SwipeRefreshLayout swipeRefreshLayout2;
 
 
@@ -62,6 +63,11 @@ public class pantalla3 extends AppCompatActivity {
         factor_display = findViewById(R.id.factor_display);
         valor_display = findViewById(R.id.valor_display);
         unidades_display2 = findViewById(R.id.unidades_display2);
+        PrecioDiaComponente_text_display= findViewById(R.id.PrecioDiaComponente_text_display);
+        PrecioDiaComponente_display=findViewById(R.id.PrecioDiaComponente_display);
+        PrecioDiaProyecto_display=findViewById(R.id.PrecioDiaProyecto_display);
+        PrecioDiaProyecto_text_display=findViewById(R.id.PrecioDiaProyecto_text_display);
+
 
         System.out.println("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
         getIntentAndSetData();
@@ -176,6 +182,8 @@ public class pantalla3 extends AppCompatActivity {
             valor_display.setText(valor);
             unidades_display2.setText(unidades);
 
+
+
             /*Escribir datos de la BD en los text view FIN*/
 
         } else {
@@ -229,10 +237,12 @@ public class pantalla3 extends AppCompatActivity {
     }
     void PrecioDiaComponentes() {
         double sum=0;
+       String sum2 = null;
         double[] Arr = new double [precio.size()];
         double [] PrecioporDia= new double [precio.size()];
         long [] Fecha1 = new long[fecha_comienzo.size()];
         long[] Fecha2 = new long[fecha_final.size()];
+        ArrayList<String> Precio_finalComponente= new ArrayList<String>();
         for (int i = 0; i < precio.size(); i++) {
             Arr[i] = Integer.parseInt(valueOf(precio.get(i)));
             Fecha1[i] = Long.parseLong(fecha_comienzo.get(i));
@@ -257,9 +267,11 @@ public class pantalla3 extends AppCompatActivity {
             DecimalFormat df = new DecimalFormat("#.##");
             System.out.println(df.format(PrecioporDia[i]));
             sum= PrecioporDia[i]+ sum;
-
+            sum2=df.format(sum);
+            Precio_finalComponente.add(i, String.valueOf(df.format(PrecioporDia[i])));
         }
-
+        PrecioDiaComponente_display.setText(String.valueOf(Precio_finalComponente));
+        PrecioDiaProyecto_text_display.setText(String.valueOf(sum2));
         System.out.println("AGUAAAAAAAAAAAAAAAAAA");
         System.out.println(sum);
         System.out.println("AGAAAAAU");

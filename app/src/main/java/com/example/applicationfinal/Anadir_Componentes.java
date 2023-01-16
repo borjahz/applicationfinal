@@ -65,7 +65,7 @@ public class Anadir_Componentes extends AppCompatActivity {
                         mMonth2=mMonth+1;
                         cucu=(mMonth2 + "/" + mDay + "/" + mYear + " "  + s );
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            LocalDate comienzo_local = LocalDate.of(mYear, mMonth, mDay);
+                            LocalDate comienzo_local = LocalDate.of(mYear, mMonth2, mDay);
 
                             System.out.println(comienzo_local);
 
