@@ -8,6 +8,26 @@
     android:padding="30dp">
 
 
+    <ImageButton
+        android:id="@+id/botton_fechacomienzo4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        app:layout_constraintStart_toEndOf="@+id/Fecha_Comienzo_Componente_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <ImageButton
+        android:id="@+id/botton_fechafinal4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="250dp"
+        app:layout_constraintStart_toEndOf="@+id/Fecha_Fin_Componente_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
     <EditText
         android:id="@+id/Proyecto_id_fk_edit"
         android:layout_width="match_parent"
@@ -49,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="55dp"
         android:ems="10"
         android:hint="@string/comienzo"
         android:inputType="date"
@@ -62,6 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="55dp"
         android:ems="10"
         android:hint="@string/fin"
         android:inputType="date"

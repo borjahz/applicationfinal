@@ -177,8 +177,8 @@ public class GestorSQLite extends SQLiteOpenHelper {
             Toast.makeText(context, "Editado correctamente", Toast.LENGTH_SHORT).show();
         }
 
-    }    void updateData2(String row_id_comp, String row_id_fk, String tipo, String numero, String comienzo_comp,
-                          String fin_comp,  String comienzo_compue, String fin_compue, String precio) {
+    }    void updateData2(String row_id_comp, String row_id_fk, String tipo, String numero, int comienzo_comp,
+                          int fin_comp,  String comienzo_compue, String fin_compue, String precio) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_IDFK, row_id_fk);
